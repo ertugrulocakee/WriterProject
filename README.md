@@ -4,7 +4,7 @@ https://github.com/ertugrulocakee/OcakBilgisayarYonetimPaneli MVC 5.0 Projesi/Ç
 Daha öncesinde .NET CORE ile 2 tane kurumsal mimariye ve SOLID Prensiplerine uygun proje/çalışma yapmaya çalışmıştım.
 
 -> https://github.com/ertugrulocakee/PortfolyoProjesi
-->
+-> https://github.com/ertugrulocakee/OCAK-212
 
 Şimdi bu proje ile birlikte ASPNET MVC 5.0 için de
 kurumsal mimariye ve SOLID Prensiplerine uygun bir çalışma yapmaya uğraş vereceğim. Proje henüz başlangıç aşamasındadır. Temel iskeleti kurulmuştur. Bundan sonra Arayüz/Sunum
