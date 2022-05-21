@@ -23,16 +23,16 @@ namespace DAL.Repository
 
         public void Add(T t)
         {
-            _object.Add(t);
+            var addedEntity = c.Entry(t);
+            addedEntity.State = EntityState.Added;
             c.SaveChanges();
-
         }
 
         public void Delete(T t)
         {
-            _object.Remove(t);
+            var removedEntity = c.Entry(t); 
+            removedEntity.State = EntityState.Deleted;  
             c.SaveChanges();
-
         }
 
         public T GetByID(int id)
@@ -55,6 +55,8 @@ namespace DAL.Repository
 
         public void Update(T t)
         {
+            var updatedEntity = c.Entry(t); 
+            updatedEntity.State = EntityState.Modified; 
             c.SaveChanges();
         }
     }

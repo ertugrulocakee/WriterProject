@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202205121031322_first.designer.cs">
       <DependentUpon>202205121031322_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205211507232_addcolumnstowriter.cs" />
+    <Compile Include="Migrations\202205211507232_addcolumnstowriter.designer.cs">
+      <DependentUpon>202205211507232_addcolumnstowriter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -82,6 +86,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202205121031322_first.resx">
       <DependentUpon>202205121031322_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205211507232_addcolumnstowriter.resx">
+      <DependentUpon>202205211507232_addcolumnstowriter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,11 @@ namespace BL.Concrete
 
         IWriterDAL _writerDAL;
 
+        public WriterManager(IWriterDAL writerDAL)
+        {
+            _writerDAL = writerDAL;
+        }
+
         public void TAdd(Writer t)
         {
             _writerDAL.Add(t);
