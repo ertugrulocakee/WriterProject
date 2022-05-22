@@ -9,5 +9,8 @@ namespace BL.Abstract
 {
     public interface IContentService : IGenericService<Content>
     {
+
+        List<Content> GetListByID(int id);
+
     }
 }

@@ -19,6 +19,11 @@ namespace BL.Concrete
             _contentDAL = contentDAL;
         }
 
+        public List<Content> GetListByID(int id)
+        {
+           return _contentDAL.FilterList(x=>x.HeadingID == id);   
+        }
+
         public void TAdd(Content t)
         {
             _contentDAL.Add(t); 
