@@ -158,9 +158,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2003,6 +2006,14 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
+    <Content Include="colorlib-error-404-10\colorlib-error-404-10\css\style.css" />
+    <Content Include="colorlib-error-404-10\colorlib-error-404-10\img\bg.jpg" />
+    <Content Include="colorlib-error-404-10\colorlib-error-404-10\index.html" />
+    <Content Include="colorlib-error-404-10\colorlib-error-404-10\readme.txt" />
+    <Content Include="colorlib-error-404-10\__MACOSX\colorlib-error-404-10\._index.html" />
+    <Content Include="colorlib-error-404-10\__MACOSX\colorlib-error-404-10\._readme.txt" />
+    <Content Include="colorlib-error-404-10\__MACOSX\colorlib-error-404-10\css\._style.css" />
+    <Content Include="colorlib-error-404-10\__MACOSX\colorlib-error-404-10\img\._bg.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2268,6 +2279,9 @@
     <Content Include="AdminLTE-3.0.4\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE-3.0.4\README.md" />
+    <Content Include="colorlib-error-404-10\__MACOSX\._colorlib-error-404-10" />
+    <Content Include="colorlib-error-404-10\__MACOSX\colorlib-error-404-10\._css" />
+    <Content Include="colorlib-error-404-10\__MACOSX\colorlib-error-404-10\._img" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2306,6 +2320,20 @@
     <Content Include="Views\Content\ContentByHeader.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\About\AboutPartial.cshtml" />
+    <Content Include="Views\Category\Test.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\GetContactDetails.cshtml" />
+    <Content Include="Views\Message\Inbox.cshtml" />
+    <Content Include="Views\Message\SendBox.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
+    <Content Include="Views\Contact\MessagePartial.cshtml" />
+    <Content Include="Views\Message\GetMessageDetails.cshtml" />
+    <Content Include="Views\Message\GetSendMessageDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\ErrorPage\Page403.cshtml" />
+    <Content Include="Views\ErrorPage\Page500.cshtml" />
+    <Content Include="Views\Contact\RemovedContactMessages.cshtml" />
+    <Content Include="Views\Message\RemovedSendMessages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,6 +57,7 @@
     <Compile Include="Abstract\IContentDAL.cs" />
     <Compile Include="Abstract\IHeadingDAL.cs" />
     <Compile Include="Abstract\IGenericDAL.cs" />
+    <Compile Include="Abstract\IMessageDAL.cs" />
     <Compile Include="Abstract\IWriterDAL.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="EF\EFAboutDAL.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="EF\EFContactDAL.cs" />
     <Compile Include="EF\EFContentDAL.cs" />
     <Compile Include="EF\EFHeadingDAL.cs" />
+    <Compile Include="EF\EFMessageDAL.cs" />
     <Compile Include="EF\EFWriterDAL.cs" />
     <Compile Include="Migrations\202205121031322_first.cs" />
     <Compile Include="Migrations\202205121031322_first.designer.cs">
@@ -80,6 +82,22 @@
     <Compile Include="Migrations\202205221645185_addstatustocontent.cs" />
     <Compile Include="Migrations\202205221645185_addstatustocontent.designer.cs">
       <DependentUpon>202205221645185_addstatustocontent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205281521302_contactvalidation.cs" />
+    <Compile Include="Migrations\202205281521302_contactvalidation.designer.cs">
+      <DependentUpon>202205281521302_contactvalidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205281936062_adddatetocontact.cs" />
+    <Compile Include="Migrations\202205281936062_adddatetocontact.designer.cs">
+      <DependentUpon>202205281936062_adddatetocontact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205281944192_messageclassadding.cs" />
+    <Compile Include="Migrations\202205281944192_messageclassadding.designer.cs">
+      <DependentUpon>202205281944192_messageclassadding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205291139318_statusaddtomessage.cs" />
+    <Compile Include="Migrations\202205291139318_statusaddtomessage.designer.cs">
+      <DependentUpon>202205291139318_statusaddtomessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +121,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205221645185_addstatustocontent.resx">
       <DependentUpon>202205221645185_addstatustocontent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205281521302_contactvalidation.resx">
+      <DependentUpon>202205281521302_contactvalidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205281936062_adddatetocontact.resx">
+      <DependentUpon>202205281936062_adddatetocontact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205281944192_messageclassadding.resx">
+      <DependentUpon>202205281944192_messageclassadding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205291139318_statusaddtomessage.resx">
+      <DependentUpon>202205291139318_statusaddtomessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

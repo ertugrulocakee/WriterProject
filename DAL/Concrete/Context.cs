@@ -22,5 +22,7 @@ namespace DAL.Concrete
 
         public DbSet<Writer> Writers { get; set; }
 
+        public DbSet<Message> Messages { get; set; }    
+
     }
 }

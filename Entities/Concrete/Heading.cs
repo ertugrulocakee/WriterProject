@@ -12,7 +12,6 @@ namespace Entities.Concrete
         [Key]
         public int HeadingID { get; set; }
 
-        [StringLength(50)]
         public string HeadingName { get; set; }
 
         public DateTime HeadingDate { get; set; }

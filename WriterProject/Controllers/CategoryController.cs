@@ -126,7 +126,13 @@ namespace WriterProject.Controllers
 
         }
 
+        public ActionResult Test()
+        {
 
+            return View();
+
+        }
+        
 
     }
 }
