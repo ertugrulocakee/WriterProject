@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDAL.cs" />
+    <Compile Include="Abstract\IAdminDAL.cs" />
     <Compile Include="Abstract\ICategoryDAL.cs" />
     <Compile Include="Abstract\IContactDAL.cs" />
     <Compile Include="Abstract\IContentDAL.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Abstract\IWriterDAL.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="EF\EFAboutDAL.cs" />
+    <Compile Include="EF\EFAdminDAL.cs" />
     <Compile Include="EF\EFCategoryDAL.cs" />
     <Compile Include="EF\EFContactDAL.cs" />
     <Compile Include="EF\EFContentDAL.cs" />
@@ -105,6 +107,14 @@
     <Compile Include="Migrations\202205291920440_imageFile.designer.cs">
       <DependentUpon>202205291920440_imageFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205291955436_admintoproject.cs" />
+    <Compile Include="Migrations\202205291955436_admintoproject.designer.cs">
+      <DependentUpon>202205291955436_admintoproject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205292049599_adminupdate.cs" />
+    <Compile Include="Migrations\202205292049599_adminupdate.designer.cs">
+      <DependentUpon>202205292049599_adminupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -142,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205291920440_imageFile.resx">
       <DependentUpon>202205291920440_imageFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205291955436_admintoproject.resx">
+      <DependentUpon>202205291955436_admintoproject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205292049599_adminupdate.resx">
+      <DependentUpon>202205292049599_adminupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
