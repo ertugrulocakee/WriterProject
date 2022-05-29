@@ -57,6 +57,7 @@
     <Compile Include="Abstract\IContentDAL.cs" />
     <Compile Include="Abstract\IHeadingDAL.cs" />
     <Compile Include="Abstract\IGenericDAL.cs" />
+    <Compile Include="Abstract\IImageFileDAL.cs" />
     <Compile Include="Abstract\IMessageDAL.cs" />
     <Compile Include="Abstract\IWriterDAL.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="EF\EFContactDAL.cs" />
     <Compile Include="EF\EFContentDAL.cs" />
     <Compile Include="EF\EFHeadingDAL.cs" />
+    <Compile Include="EF\EFImageFileDAL.cs" />
     <Compile Include="EF\EFMessageDAL.cs" />
     <Compile Include="EF\EFWriterDAL.cs" />
     <Compile Include="Migrations\202205121031322_first.cs" />
@@ -98,6 +100,10 @@
     <Compile Include="Migrations\202205291139318_statusaddtomessage.cs" />
     <Compile Include="Migrations\202205291139318_statusaddtomessage.designer.cs">
       <DependentUpon>202205291139318_statusaddtomessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205291920440_imageFile.cs" />
+    <Compile Include="Migrations\202205291920440_imageFile.designer.cs">
+      <DependentUpon>202205291920440_imageFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205291139318_statusaddtomessage.resx">
       <DependentUpon>202205291139318_statusaddtomessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205291920440_imageFile.resx">
+      <DependentUpon>202205291920440_imageFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

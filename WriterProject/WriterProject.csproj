@@ -161,6 +161,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -329,6 +330,8 @@
     <Content Include="AdminLTE-3.0.4\docs\_layouts\home.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\page.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\post.html" />
+    <Content Include="AdminLTE-3.0.4\Images\0x0-son-dakika-besiktas-haberleri-besiktasta-michy-batshuayinin-yeri-hemen-doldu-yildiz-golcu-geliyor-valerien-ism-1653681029934.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\169677103_3960800923997355_59504633706910329_n.jpg" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2334,6 +2337,7 @@
     <Content Include="Views\ErrorPage\Page500.cshtml" />
     <Content Include="Views\Contact\RemovedContactMessages.cshtml" />
     <Content Include="Views\Message\RemovedSendMessages.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

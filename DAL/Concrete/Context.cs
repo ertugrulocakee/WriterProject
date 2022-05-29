@@ -24,5 +24,7 @@ namespace DAL.Concrete
 
         public DbSet<Message> Messages { get; set; }    
 
+        public DbSet<ImageFile> ImageFiles { get; set; }
+
     }
 }
