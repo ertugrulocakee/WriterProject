@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+
 
 namespace WriterProject.Controllers
 {
@@ -38,7 +40,8 @@ namespace WriterProject.Controllers
 
                 if (values != null)
                 {
-
+                    FormsAuthentication.SetAuthCookie(admin.userName, false);
+                    Session["AdminUserName"] = admin.userName;
                     return RedirectToAction("Index", "Category");
 
                 }

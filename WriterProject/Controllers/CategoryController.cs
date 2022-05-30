@@ -16,6 +16,8 @@ namespace WriterProject.Controllers
         // GET: Category
 
         CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL());
+
+        [Authorize(Roles="1")]
         public ActionResult Index()
         {
             var categories = categoryManager.TGetList().Where(x=>x.CategoryStatus == true).ToList();

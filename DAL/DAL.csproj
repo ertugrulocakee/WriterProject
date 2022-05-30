@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IGenericDAL.cs" />
     <Compile Include="Abstract\IImageFileDAL.cs" />
     <Compile Include="Abstract\IMessageDAL.cs" />
+    <Compile Include="Abstract\ISkillDAL.cs" />
     <Compile Include="Abstract\IWriterDAL.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="EF\EFAboutDAL.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="EF\EFHeadingDAL.cs" />
     <Compile Include="EF\EFImageFileDAL.cs" />
     <Compile Include="EF\EFMessageDAL.cs" />
+    <Compile Include="EF\EFSkillDAL.cs" />
     <Compile Include="EF\EFWriterDAL.cs" />
     <Compile Include="Migrations\202205121031322_first.cs" />
     <Compile Include="Migrations\202205121031322_first.designer.cs">
@@ -115,6 +117,26 @@
     <Compile Include="Migrations\202205292049599_adminupdate.designer.cs">
       <DependentUpon>202205292049599_adminupdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205300755546_skills.cs" />
+    <Compile Include="Migrations\202205300755546_skills.designer.cs">
+      <DependentUpon>202205300755546_skills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205300848488_writertoskill.cs" />
+    <Compile Include="Migrations\202205300848488_writertoskill.designer.cs">
+      <DependentUpon>202205300848488_writertoskill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205300918046_skillfix.cs" />
+    <Compile Include="Migrations\202205300918046_skillfix.designer.cs">
+      <DependentUpon>202205300918046_skillfix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205301004558_skilloverallfix.cs" />
+    <Compile Include="Migrations\202205301004558_skilloverallfix.designer.cs">
+      <DependentUpon>202205301004558_skilloverallfix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205301016298_fixskill.cs" />
+    <Compile Include="Migrations\202205301016298_fixskill.designer.cs">
+      <DependentUpon>202205301016298_fixskill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -158,6 +180,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205292049599_adminupdate.resx">
       <DependentUpon>202205292049599_adminupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205300755546_skills.resx">
+      <DependentUpon>202205300755546_skills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205300848488_writertoskill.resx">
+      <DependentUpon>202205300848488_writertoskill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205300918046_skillfix.resx">
+      <DependentUpon>202205300918046_skillfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205301004558_skilloverallfix.resx">
+      <DependentUpon>202205301004558_skilloverallfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205301016298_fixskill.resx">
+      <DependentUpon>202205301016298_fixskill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

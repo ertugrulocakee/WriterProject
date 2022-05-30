@@ -28,5 +28,9 @@ namespace DAL.Concrete
 
         public DbSet<Admin> Admins { get; set; }
 
+        public DbSet<Skill> Skills { get; set; }
+
+
+
     }
 }
