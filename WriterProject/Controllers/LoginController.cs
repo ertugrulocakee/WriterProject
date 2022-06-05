@@ -13,6 +13,7 @@ using WriterProject.Models;
 
 namespace WriterProject.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login

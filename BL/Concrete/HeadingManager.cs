@@ -19,9 +19,10 @@ namespace BL.Concrete
             _headingDAL = headingDAL;
         }
 
-        public List<Heading> GetListByWriter()
+    
+        public List<Heading> GetListByWriter(int id)
         {
-            return _headingDAL.FilterList(x => x.WriterID == 1);
+            return _headingDAL.FilterList(x => x.WriterID == id);
         }
 
         public void TAdd(Heading t)

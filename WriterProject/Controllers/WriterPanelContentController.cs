@@ -13,11 +13,16 @@ namespace WriterProject.Controllers
         // GET: WriterPanelContent
 
         ContentManager contentManager = new ContentManager(new EFContentDAL());
+        WriterManager writerManager = new WriterManager(new EFWriterDAL());
 
         public ActionResult MyContent()
         {
 
-            var contentValues = contentManager.GetListByWriter().Where(m => m.ContentStatus == true).ToList();
+            string writerMail = Session["WriterMail"].ToString();
+
+            int id = writerManager.GetWriterByMail(writerMail).WriterID;
+
+            var contentValues = contentManager.GetListByWriter(id).Where(m => m.ContentStatus == true).ToList();
             return View(contentValues);
 
         }

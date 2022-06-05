@@ -19,6 +19,11 @@ namespace BL.Concrete
             _writerDAL = writerDAL;
         }
 
+        public Writer GetWriterByMail(string mail)
+        {
+            return _writerDAL.FilterList(x=>x.WriterMail == mail).FirstOrDefault();
+        }
+
         public void TAdd(Writer t)
         {
             _writerDAL.Add(t);

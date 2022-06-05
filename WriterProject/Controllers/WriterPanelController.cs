@@ -16,7 +16,8 @@ namespace WriterProject.Controllers
         // GET: WriterPanel
 
         HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
-        CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL()); 
+        CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL());
+        WriterManager writerManager = new WriterManager(new EFWriterDAL());
 
 
         public ActionResult WriterProfile()
@@ -27,7 +28,12 @@ namespace WriterProject.Controllers
 
         public ActionResult MyHeading()
         {
-            var values = headingManager.GetListByWriter().Where(m => m.HeadingStatus == true).ToList();
+
+            string writerMail = Session["WriterMail"].ToString();
+
+            int id = writerManager.GetWriterByMail(writerMail).WriterID;
+
+            var values = headingManager.GetListByWriter(id).Where(m => m.HeadingStatus == true).ToList();
 
             return View(values);
           
@@ -79,9 +85,10 @@ namespace WriterProject.Controllers
             if (validationResult.IsValid)
             {
 
+                string writerMail = Session["WriterMail"].ToString();
                 heading.HeadingDate = DateTime.Now;
                 heading.HeadingStatus = true;
-                heading.WriterID = 1;
+                heading.WriterID = writerManager.GetWriterByMail(writerMail).WriterID;
                 headingManager.TAdd(heading);
                 return RedirectToAction("MyHeading");
 

@@ -9,5 +9,8 @@ namespace BL.Abstract
 {
     public interface IWriterService : IGenericService<Writer>
     {
+
+        Writer GetWriterByMail(string mail);
+
     }
 }
