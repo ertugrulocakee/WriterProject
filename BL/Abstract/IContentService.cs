@@ -12,5 +12,7 @@ namespace BL.Abstract
 
         List<Content> GetListByID(int id);
 
+        List<Content> GetListByWriter();   
+
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
+using WriterProject.Models;
 
 namespace WriterProject.Controllers
 {
@@ -18,6 +18,7 @@ namespace WriterProject.Controllers
         // GET: Login
 
         AdminManager adminManager = new AdminManager(new EFAdminDAL());
+        WriterManager writerManager = new WriterManager(new EFWriterDAL());
 
         [HttpGet]
         public ActionResult Index()
@@ -48,7 +49,7 @@ namespace WriterProject.Controllers
                 else
                 {
 
-                    ViewBag.Message = "Boyle bir kullanici yoktur!";
+                    ViewBag.Message = "Boyle bir admin yoktur!";
 
                     return View();
 
@@ -75,6 +76,55 @@ namespace WriterProject.Controllers
 
 
         }
+
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(WriterLoginViewModel writerLoginViewModel)
+        {
+
+            var values = writerManager.TGetList().Where(m => m.WriterMail == writerLoginViewModel.WriterMail && m.WriterPassword == writerLoginViewModel.WriterPassword).FirstOrDefault();
+
+
+            if(ModelState.IsValid)
+            {
+
+                if (values != null)
+                {
+                    FormsAuthentication.SetAuthCookie(writerLoginViewModel.WriterMail, false);
+                    Session["WriterMail"] = writerLoginViewModel.WriterMail;
+                    return RedirectToAction("MyContent", "WriterPanelContent");
+
+                }
+                else
+                {
+
+                    ViewBag.Message = "Boyle bir yazar yoktur!";
+
+                    return View();
+
+                }
+
+            }
+            else
+            {
+
+
+
+                return View();
+
+
+            }
+
+        }
+
 
     }
 }

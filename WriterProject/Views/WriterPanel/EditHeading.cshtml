@@ -1,0 +1,50 @@
+﻿@model Entities.Concrete.Heading
+
+@{
+    ViewBag.Title = "EditHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Başlık Düzenle</h4>
+            <br />
+            <br />
+
+            @using (Html.BeginForm("EditHeading", "WriterPanel", FormMethod.Post))
+            {
+
+                @Html.HiddenFor(m => m.HeadingID)
+
+                <div class="form-group">
+                    <label>Başlık Adı</label>
+                    @Html.TextBoxFor(m => m.HeadingName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.HeadingName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Kategori Seç</label>
+                    @Html.DropDownListFor(m => m.Category.CategoryID, (List<SelectListItem>)ViewBag.categories, new { @class = "form-control" })
+                </div>
+
+         
+                <button class="btn btn-success">Düzenle</button>
+
+
+            }
+
+
+        </div>
+    </div>
+</div>
+

@@ -9,5 +9,7 @@ namespace BL.Abstract
 {
     public interface IHeadingService : IGenericService<Heading>
     {
+        List<Heading> GetListByWriter();
+
     }
 }

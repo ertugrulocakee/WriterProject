@@ -1,0 +1,65 @@
+﻿@using Entities.Concrete
+@model List<Heading>
+
+@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Başlıklar</h3>
+
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th>Kategori</th>
+                            <th>Yazar</th>
+                            <th>Bu başlıkla açılmış içerikler</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.HeadingID</td>
+                                <td>@item.HeadingName</td>
+                                <td>@item.HeadingDate</td>
+                                <td>@item.Category.CategoryName</td>
+                                <td>@item.Writer.WriterName @item.Writer.WriterSurName</td>
+
+                                <td><a href="/Content/ContentByHeader/@item.HeadingID" class="btn btn-info">Başlık İçeriklere Bak</a></td>
+                                <td><a href="/WriterPanel/RemoveHeading/@item.HeadingID" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/WriterPanel/EditHeading/@item.HeadingID" class="btn btn-success">Güncelle</a></td>
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+<a href="/WriterPanel/NewHeading/" class="btn btn-primary">Yeni Bir Başlık Ekle</a>
+
+
+
+
