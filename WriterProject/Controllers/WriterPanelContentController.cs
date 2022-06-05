@@ -1,5 +1,6 @@
 ﻿using BL.Concrete;
 using DAL.EF;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +27,30 @@ namespace WriterProject.Controllers
             return View(contentValues);
 
         }
+
+        [HttpGet]
+        public ActionResult AddContent()
+        {
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult AddContent(Content content)
+        {
+
+            string writerMail = Session["WriterMail"].ToString();
+
+            int id = writerManager.GetWriterByMail(writerMail).WriterID;
+
+            content.ContentDate = DateTime.Now;
+            content.WriterID = id;
+            content.ContentStatus = true;
+            contentManager.TAdd(content);
+            return RedirectToAction("MyContent");
+
+        }
+
     }
 }

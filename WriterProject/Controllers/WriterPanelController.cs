@@ -226,6 +226,19 @@ namespace WriterProject.Controllers
         }
 
 
+        public ActionResult AllHeadings()
+        {
+
+            var headings = headingManager.TGetList();
+
+
+            return View(headings);
+
+        }
+
+
+
+
 
     }
 }
