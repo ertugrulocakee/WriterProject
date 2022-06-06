@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace WriterProject.Controllers
 {
@@ -29,9 +30,9 @@ namespace WriterProject.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddContent()
+        public ActionResult AddContent(int id)
         {
-
+            ViewBag.Id = id;    
             return View();
 
         }
@@ -51,6 +52,14 @@ namespace WriterProject.Controllers
             return RedirectToAction("MyContent");
 
         }
+
+        public ActionResult ToDoList()
+        {
+
+            return View();
+
+        }
+
 
     }
 }

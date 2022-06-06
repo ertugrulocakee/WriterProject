@@ -1,8 +1,51 @@
-﻿
+﻿@model Entities.Concrete.Content
+
 @{
     ViewBag.Title = "AddContent";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<h2>AddContent</h2>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">İçerik Ekle...</h4>
+            <br />
+            <br />
+
+            @using (Html.BeginForm("AddContent", "WriterPanelContent", FormMethod.Post))
+            {
+
+
+                <div class="form-group">
+
+                    <input type="hidden" name="HeadingID" value="@ViewBag.Id"/>
+
+                    <label>Başlık için yaz...</label>
+                    @Html.TextAreaFor(m => m.ContentValue,10,8, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ContentValue, "", new { @class = "text-danger" })
+                </div>
+
+             
+
+
+                <button class="btn btn-success">Ekle</button>
+
+
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
 
