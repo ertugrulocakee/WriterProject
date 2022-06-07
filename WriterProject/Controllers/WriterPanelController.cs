@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
@@ -226,10 +228,10 @@ namespace WriterProject.Controllers
         }
 
 
-        public ActionResult AllHeadings()
+        public ActionResult AllHeadings(int page=1)
         {
 
-            var headings = headingManager.TGetList();
+            var headings = headingManager.TGetList().ToPagedList(page,10);
 
 
             return View(headings);
