@@ -16,11 +16,14 @@ namespace WriterProject.Controllers
         // GET: WriterPanelMessage
 
         MessageManager messageManager = new MessageManager(new EFMessageDAL());
+        WriterManager writerManager = new WriterManager(new EFWriterDAL());
 
         public ActionResult Inbox()
         {
 
-            var messageList = messageManager.GetReceiveBox().Where(m => m.MessageStatus == true).ToList();
+            string writerMail = Session["WriterMail"].ToString();
+
+            var messageList = messageManager.GetReceiveBox(writerMail).Where(m => m.MessageStatus == true).ToList();
 
             return View(messageList);
 
@@ -29,7 +32,9 @@ namespace WriterProject.Controllers
         public ActionResult SendBox()
         {
 
-            var messageList = messageManager.GetSendBox().Where(m => m.MessageStatus == true).ToList();
+            string writerMail = Session["WriterMail"].ToString();
+
+            var messageList = messageManager.GetSendBox(writerMail).Where(m => m.MessageStatus == true).ToList();
 
             return View(messageList);
 
@@ -41,12 +46,13 @@ namespace WriterProject.Controllers
 
             MessageManager messageManager = new MessageManager(new EFMessageDAL());
 
+            string writerMail = Session["WriterMail"].ToString();
 
-            ViewBag.messageInboxCount = messageManager.GetReceiveBox().Where(m => m.MessageStatus == true).Count();
+            ViewBag.messageInboxCount = messageManager.GetReceiveBox(writerMail).Where(m => m.MessageStatus == true).Count();
 
-            ViewBag.messageSendBoxCount = messageManager.GetSendBox().Where(m => m.MessageStatus == true).Count();
+            ViewBag.messageSendBoxCount = messageManager.GetSendBox(writerMail).Where(m => m.MessageStatus == true).Count();
 
-            ViewBag.removedSendMessagesCount = messageManager.GetSendBox().Where(m => m.MessageStatus == false).Count();
+            ViewBag.removedSendMessagesCount = messageManager.GetSendBox(writerMail).Where(m => m.MessageStatus == false).Count();
 
 
             return PartialView();
@@ -76,8 +82,9 @@ namespace WriterProject.Controllers
 
         public ActionResult RemovedSendMessages()
         {
+            string writerMail = Session["WriterMail"].ToString();
 
-            var messageList = messageManager.GetSendBox().Where(m => m.MessageStatus == false).ToList();
+            var messageList = messageManager.GetSendBox(writerMail).Where(m => m.MessageStatus == false).ToList();
 
             return View(messageList);
 
@@ -101,6 +108,9 @@ namespace WriterProject.Controllers
 
             if (validationResult.IsValid)
             {
+
+                string writerMail = Session["WriterMail"].ToString();
+                message.SenderMail = writerMail;
                 message.MessageStatus = true;
                 message.Date = DateTime.Now;
                 messageManager.TAdd(message);

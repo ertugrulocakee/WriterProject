@@ -37,13 +37,13 @@ namespace WriterProject.Controllers
 
             ViewBag.contactMessagesCount = contactManager.TGetList().Where(m => m.ContactStatus == true).Count();
 
-            ViewBag.messageInboxCount = messageManager.GetReceiveBox().Where(m => m.MessageStatus == true).Count();
+            ViewBag.messageInboxCount = messageManager.GetReceiveBox("").Where(m => m.MessageStatus == true).Count();
 
-            ViewBag.messageSendBoxCount = messageManager.GetSendBox().Where(m => m.MessageStatus == true).Count();
+            ViewBag.messageSendBoxCount = messageManager.GetSendBox("").Where(m => m.MessageStatus == true).Count();
 
             ViewBag.removedContactMessagesCount = contactManager.TGetList().Where(m => m.ContactStatus == false).Count();
 
-            ViewBag.removedSendMessagesCount = messageManager.GetSendBox().Where(m => m.MessageStatus == false).Count();    
+            ViewBag.removedSendMessagesCount = messageManager.GetSendBox("").Where(m => m.MessageStatus == false).Count();    
 
             return PartialView();
 

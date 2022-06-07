@@ -19,14 +19,14 @@ namespace BL.Concrete
             _messageDAL = messageDAL;
         }
 
-        public List<Message> GetReceiveBox()
+        public List<Message> GetReceiveBox(string email)
         {
-            return _messageDAL.FilterList(m => m.ReceiverMail == "ertugrulocakee@gmail.com");    
+            return _messageDAL.FilterList(m => m.ReceiverMail == email);    
         }
 
-        public List<Message> GetSendBox()
+        public List<Message> GetSendBox(string email)
         {
-            return _messageDAL.FilterList(m => m.SenderMail == "ertugrulocakee@gmail.com");
+            return _messageDAL.FilterList(m => m.SenderMail == email);
         }
 
         public void TAdd(Message t)

@@ -18,19 +18,19 @@ namespace WriterProject.Controllers
         MessageManager messageManager = new MessageManager(new EFMessageDAL());
 
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
 
-            var messageList = messageManager.GetReceiveBox().Where(m => m.MessageStatus == true).ToList();
+            var messageList = messageManager.GetReceiveBox(p).Where(m => m.MessageStatus == true).ToList();
 
             return View(messageList);
 
         }
 
-        public ActionResult SendBox()
+        public ActionResult SendBox(string p)
         {
 
-            var messageList = messageManager.GetSendBox().Where(m => m.MessageStatus == true).ToList();
+            var messageList = messageManager.GetSendBox(p).Where(m => m.MessageStatus == true).ToList();
 
             return View(messageList);
 
@@ -117,7 +117,7 @@ namespace WriterProject.Controllers
         public ActionResult RemovedSendMessages()
         {
 
-            var messageList = messageManager.GetSendBox().Where(m => m.MessageStatus == false).ToList();
+            var messageList = messageManager.GetSendBox("").Where(m => m.MessageStatus == false).ToList();
 
             return View(messageList);
 

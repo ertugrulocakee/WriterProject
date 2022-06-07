@@ -1,8 +1,79 @@
-﻿
+﻿@model WriterProject.Models.WriterViewModel
+
 @{
     ViewBag.Title = "WriterProfile";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<h2>WriterProfile</h2>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yazar Düzenleme Sayfası</h4>
+            <br />
+            <br />
+
+            @using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                @Html.HiddenFor(m => m.id)
+
+                <div class="form-group">
+                    <label>Yazar Adı</label>
+                    @Html.TextBoxFor(m => m.WriterName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.WriterName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Yazar Soyadı</label>
+                    @Html.TextBoxFor(m => m.WriterSurName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.WriterSurName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Yazar E-posta Adresi</label>
+                    @Html.TextBoxFor(m => m.WriterMail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.WriterMail, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Yazar Şifresi</label>
+                    @Html.TextBoxFor(m => m.WriterPassword, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.WriterPassword, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Yazar Açıklaması</label>
+                    @Html.TextAreaFor(m => m.WriterDescription, 6, 8, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.WriterDescription, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    <label>Yazar Resimini Güncelle</label>
+                    @Html.TextBoxFor(m => m.Image, new { type = "file" })
+
+                </div>
+
+                <button class="btn btn-success">Güncelle</button>
+
+
+            }
+
+
+        </div>
+    </div>
+</div>
+
 
