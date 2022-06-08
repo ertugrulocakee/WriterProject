@@ -8,6 +8,8 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
+
+    [Authorize(Roles = "1")]
     public class ContactController : Controller
     {
         // GET: Contact

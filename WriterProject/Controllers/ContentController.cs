@@ -19,7 +19,7 @@ namespace WriterProject.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "1")]
         public ActionResult GetAllContents(string p)
         {
 

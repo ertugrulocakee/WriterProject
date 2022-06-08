@@ -19,7 +19,12 @@ namespace BL.Concrete
             _headingDAL = headingDAL;
         }
 
-    
+        public List<Heading> GetListByCategory(int id)
+        {
+
+            return _headingDAL.FilterList(x => x.CategoryID == id);
+        }
+
         public List<Heading> GetListByWriter(int id)
         {
             return _headingDAL.FilterList(x => x.WriterID == id);

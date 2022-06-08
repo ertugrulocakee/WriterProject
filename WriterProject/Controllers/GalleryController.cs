@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
+    [Authorize(Roles = "1")]
     public class GalleryController : Controller
     {
         // GET: Gallery

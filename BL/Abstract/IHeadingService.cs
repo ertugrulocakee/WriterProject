@@ -11,5 +11,7 @@ namespace BL.Abstract
     {
         List<Heading> GetListByWriter(int id);
 
+        List<Heading> GetListByCategory(int id);
+        
     }
 }

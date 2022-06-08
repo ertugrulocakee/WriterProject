@@ -22,7 +22,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Kategori</th>
-                            <th>Durum</th>
                             <th>Sil</th>
                             <th>Güncelle</th>
                             <th>Başlıklar</th>
@@ -35,11 +34,10 @@
                         <tr>
                             <td>@item.CategoryID</td>
                             <td>@item.CategoryName</td>
-                            <td>@item.CategoryStatus</td>
                      
                             <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
                             <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a></td>
-                            <td><a href="/Category/CategoryTitles/@item.CategoryID" class="btn btn-info">Başlıklarına bak</a></td>
+                            <td><a href="/Category/CategoryHeadings/@item.CategoryID" class="btn btn-info">Başlıklarına bak</a></td>
                         </tr>
 
                         }

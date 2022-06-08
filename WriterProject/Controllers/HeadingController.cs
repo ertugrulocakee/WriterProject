@@ -272,7 +272,7 @@ namespace WriterProject.Controllers
 
         }
 
-
+        [Authorize(Roles = "1")]
         public ActionResult HeadingReport()
         {
             var values = headingManager.TGetList().Where(m => m.HeadingStatus == true).ToList();

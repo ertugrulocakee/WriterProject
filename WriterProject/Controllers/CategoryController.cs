@@ -11,13 +11,16 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
+
+    [Authorize(Roles = "1")]
     public class CategoryController : Controller
     {
         // GET: Category
 
         CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL());
+        HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
 
-        [Authorize(Roles="1")]
+       
         public ActionResult Index()
         {
             var categories = categoryManager.TGetList().Where(x=>x.CategoryStatus == true).ToList();
@@ -128,13 +131,16 @@ namespace WriterProject.Controllers
 
         }
 
-        public ActionResult Test()
-        {
+      public ActionResult CategoryHeadings(int id)
+      {
 
-            return View();
+          var headings = headingManager.GetListByCategory(id).Where(x=>x.HeadingStatus == true).ToList();
 
-        }
-        
+          return View(headings);
+
+      }
+
+
 
     }
 }

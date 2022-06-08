@@ -11,14 +11,18 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WriterProject.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
+    [Authorize(Roles = "1")]
     public class WriterController : Controller
     {
         // GET: Writer
 
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
+        HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());  
 
         public ActionResult Index()
         {
@@ -265,6 +269,16 @@ namespace WriterProject.Controllers
             }
 
 
+        }
+
+
+        public ActionResult WriterHeadings(int id,int page=1)
+        {
+
+            var headings = headingManager.GetListByWriter(id).Where(x=>x.HeadingStatus == true).ToPagedList(page,20);
+
+            return View(headings);
+             
         }
 
 
