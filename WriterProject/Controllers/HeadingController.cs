@@ -273,5 +273,14 @@ namespace WriterProject.Controllers
         }
 
 
+        public ActionResult HeadingReport()
+        {
+            var values = headingManager.TGetList().Where(m => m.HeadingStatus == true).ToList();
+
+            return View(values);
+
+        }
+
+
     }
 }

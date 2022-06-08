@@ -24,7 +24,24 @@ namespace BL.Concrete
            return _contentDAL.FilterList(x=>x.HeadingID == id);   
         }
 
-      
+        public List<Content> GetListByInputValue(string inputValue)
+        {
+
+            if (inputValue != null)
+            {
+
+                return _contentDAL.FilterList(x => x.ContentValue.Contains(inputValue));
+
+            }
+            else
+            {
+
+                return _contentDAL.List();  
+
+            }
+
+        }
+
         public List<Content> GetListByWriter(int id)
         {
             return _contentDAL.FilterList(x => x.WriterID == id);

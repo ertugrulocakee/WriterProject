@@ -12,7 +12,9 @@ namespace BL.Abstract
 
         List<Content> GetListByID(int id);
 
-        List<Content> GetListByWriter(int id);   
+        List<Content> GetListByWriter(int id); 
+        
+        List<Content> GetListByInputValue(string inputValue);
 
     }
 }
