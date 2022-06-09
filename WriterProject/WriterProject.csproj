@@ -162,7 +162,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
@@ -181,6 +180,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminLoginViewModel.cs" />
     <Compile Include="Models\WriterLoginViewModel.cs" />
     <Compile Include="Models\WriterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2870,8 +2870,6 @@
     <Content Include="Views\Heading\AddHeading.cshtml" />
     <Content Include="Views\Heading\UpdateHeading.cshtml" />
     <Content Include="Views\Content\ContentByHeader.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\About\AboutPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Message\Inbox.cshtml" />
@@ -2925,6 +2923,7 @@
     <Content Include="Views\Heading\HeadingReport.cshtml" />
     <Content Include="Views\Writer\WriterHeadings.cshtml" />
     <Content Include="Views\Category\CategoryHeadings.cshtml" />
+    <Content Include="Views\Category\AdminUserName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

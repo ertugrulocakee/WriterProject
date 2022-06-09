@@ -51,25 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IAboutDAL.cs" />
     <Compile Include="Abstract\IAdminDAL.cs" />
     <Compile Include="Abstract\ICategoryDAL.cs" />
     <Compile Include="Abstract\IContactDAL.cs" />
     <Compile Include="Abstract\IContentDAL.cs" />
     <Compile Include="Abstract\IHeadingDAL.cs" />
     <Compile Include="Abstract\IGenericDAL.cs" />
-    <Compile Include="Abstract\IImageFileDAL.cs" />
     <Compile Include="Abstract\IMessageDAL.cs" />
     <Compile Include="Abstract\ISkillDAL.cs" />
     <Compile Include="Abstract\IWriterDAL.cs" />
     <Compile Include="Concrete\Context.cs" />
-    <Compile Include="EF\EFAboutDAL.cs" />
     <Compile Include="EF\EFAdminDAL.cs" />
     <Compile Include="EF\EFCategoryDAL.cs" />
     <Compile Include="EF\EFContactDAL.cs" />
     <Compile Include="EF\EFContentDAL.cs" />
     <Compile Include="EF\EFHeadingDAL.cs" />
-    <Compile Include="EF\EFImageFileDAL.cs" />
     <Compile Include="EF\EFMessageDAL.cs" />
     <Compile Include="EF\EFSkillDAL.cs" />
     <Compile Include="EF\EFWriterDAL.cs" />
@@ -137,6 +133,14 @@
     <Compile Include="Migrations\202205301016298_fixskill.designer.cs">
       <DependentUpon>202205301016298_fixskill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206091329518_entitiesupdate.cs" />
+    <Compile Include="Migrations\202206091329518_entitiesupdate.designer.cs">
+      <DependentUpon>202206091329518_entitiesupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206092023466_removeimagefile.cs" />
+    <Compile Include="Migrations\202206092023466_removeimagefile.designer.cs">
+      <DependentUpon>202206092023466_removeimagefile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -195,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205301016298_fixskill.resx">
       <DependentUpon>202205301016298_fixskill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206091329518_entitiesupdate.resx">
+      <DependentUpon>202206091329518_entitiesupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206092023466_removeimagefile.resx">
+      <DependentUpon>202206092023466_removeimagefile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -9,5 +9,8 @@ namespace BL.Abstract
 {
     public interface IAdminService : IGenericService<Admin>
     {
+
+        Admin GetAdmin(string email);
+
     }
 }

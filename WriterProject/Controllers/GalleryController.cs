@@ -13,11 +13,11 @@ namespace WriterProject.Controllers
     {
         // GET: Gallery
 
-        ImageFileManager imageFileManager = new ImageFileManager(new EFImageFileDAL());
+        WriterManager writerManager = new WriterManager(new EFWriterDAL());
 
         public ActionResult Index()
         {
-            var values = imageFileManager.TGetList();
+            var values = writerManager.TGetList().Where(m => m.WriterStatus == true).ToList();
 
             return View(values);
         }

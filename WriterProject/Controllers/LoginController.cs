@@ -28,22 +28,18 @@ namespace WriterProject.Controllers
         }
 
         [HttpPost]  
-        public ActionResult Index(Admin admin)
+        public ActionResult Index(AdminLoginViewModel adminLoginViewModel)
         {
 
-            var values = adminManager.TGetList().Where(m=>m.userName == admin.userName && m.password == admin.password).FirstOrDefault();
-
-
-            AdminValidator validator = new AdminValidator();
-            ValidationResult result = validator.Validate(admin);
-
-            if (result.IsValid)
+            var value = adminManager.TGetList().Where(m=>m.email == adminLoginViewModel.email && m.password == adminLoginViewModel.password).FirstOrDefault();
+      
+            if (ModelState.IsValid)
             {
 
-                if (values != null)
+                if (value != null)
                 {
-                    FormsAuthentication.SetAuthCookie(admin.userName, false);
-                    Session["AdminUserName"] = admin.userName;
+                    FormsAuthentication.SetAuthCookie(value.email, false);
+                    Session["AdminEmail"] = value.email;
                     return RedirectToAction("Index", "Category");
 
                 }
@@ -60,21 +56,11 @@ namespace WriterProject.Controllers
             else
             {
 
-                foreach(var item in result.Errors)
-                {
 
-                    ModelState.AddModelError(item.PropertyName,item.ErrorCode);
+                  return View();
 
-
-                }
-
-                
 
             }
-
-
-             return View(); 
-
 
         }
 

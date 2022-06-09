@@ -19,6 +19,7 @@ namespace WriterProject.Controllers
 
         CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL());
         HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
+        AdminManager adminManager = new AdminManager(new EFAdminDAL());
 
        
         public ActionResult Index()
@@ -140,6 +141,15 @@ namespace WriterProject.Controllers
 
       }
 
+
+       public PartialViewResult AdminUserName()
+       {
+
+            ViewBag.admin = adminManager.GetAdmin(Session["AdminEmail"].ToString()).userName;
+
+            return PartialView();
+
+       }
 
 
     }

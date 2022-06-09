@@ -19,6 +19,12 @@ namespace BL.Concrete
             this.adminDAL = adminDAL;
         }
 
+        public Admin GetAdmin(string email)
+        {
+
+            return adminDAL.FilterList(m=>m.email == email).FirstOrDefault();   
+        }
+
         public void TAdd(Admin t)
         {
             adminDAL.Add(t);

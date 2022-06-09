@@ -5,6 +5,17 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +43,7 @@
                 <div class="col-sm-6">
                     <h1>Yeni Mesaj Oluştur</h1>
                 </div>
-             
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -45,7 +56,7 @@
                 <div class="col-md-9">
                     <div class="card card-primary card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+                            <h3 class="card-title">Yeni Mesaj</h3>
                         </div>
                         <!-- /.card-header -->
 
@@ -53,12 +64,13 @@
                         @using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
                         {
                             <div class="card-body">
+                        
                                 <div class="form-group">
-                                    <label>Alıcı Adı</label>
-                                    @Html.TextBoxFor(m => m.ReceiverMail, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(m => m.ReceiverMail, "", new { @class = "text-danger" })
+
+                                    @Html.DropDownListFor(m => m.ReceiverMail, (List<SelectListItem>)ViewBag.admins, new { @class = "form-control" })
 
                                 </div>
+
                                 <div class="form-group">
                                     <label>Başlık Adı</label>
                                     @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
@@ -66,25 +78,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Mesaj</label>
-                                    @Html.TextAreaFor(m => m.MessageDescription,10,8, new { @class = "form-control" })
+                                    @Html.TextAreaFor(m => m.MessageDescription, 10, 8, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.MessageDescription, "", new { @class = "text-danger" })
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="btn btn-default btn-file">
-                                        <i class="fas fa-paperclip"></i> Dosya Ekle
-                                        <input type="file" name="attachment">
-                                    </div>
-                                    <p class="help-block">Max. 32MB</p>
-                                </div>
+
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <div class="float-right">
-                                   
+
                                     <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
                                 </div>
-                             
+
                             </div>
                         }
                         <!-- /.card-footer -->
@@ -113,10 +119,10 @@
     <script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- Page Script -->
     <script>
-$(function () {
-    //Add text editor
-    $('#compose-textarea').summernote()
-  })</script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })</script>
 </body>
 </html>
 

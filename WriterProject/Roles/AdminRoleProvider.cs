@@ -38,11 +38,11 @@ namespace WriterProject.Roles
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string username)
+        public override string[] GetRolesForUser(string email)
         {
             AdminManager adminManager = new AdminManager(new EFAdminDAL());
 
-            var admin = adminManager.TGetList().Where(m=>m.userName == username).FirstOrDefault();
+            var admin = adminManager.TGetList().Where(m=>m.email == email).FirstOrDefault();
 
             return new string[] { admin.role };
 

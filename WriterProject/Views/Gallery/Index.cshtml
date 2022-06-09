@@ -1,5 +1,5 @@
 ﻿@using Entities.Concrete
-@model List<ImageFile>
+@model List<Writer>
 
 
 @{
@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Sözlük Galerisi</h1>
+                    <h1>Yazar Galerisi</h1>
                 </div>
               
             </div>
@@ -47,7 +47,7 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             <div class="card-title">
-                                Galeri
+                                Yazarlar
                             </div>
                         </div>
                         <div class="card-body">
@@ -57,8 +57,12 @@
                                 {
 
                                 <div class="col-sm-2">
-                                    <a href="@item.imagePath" data-toggle="lightbox" data-title="@item.imageName" data-gallery="gallery">
-                                        <img src="@item.imagePath" class="img-fluid mb-2" alt="white sample" />
+                                    <a href="@item.WriterImage" data-toggle="lightbox" data-title="@item.WriterName @item.WriterSurName" data-gallery="gallery">
+                                        <img src="@item.WriterImage" class="img-fluid mb-2" alt="writerpicture" />
+                                        <br />
+
+                                        <p style="text-align:center">@item.WriterName @item.WriterSurName</p>
+
                                     </a>
                                 </div>
 

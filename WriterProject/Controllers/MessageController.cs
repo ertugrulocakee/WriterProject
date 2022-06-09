@@ -18,21 +18,27 @@ namespace WriterProject.Controllers
         // GET: Message
 
         MessageManager messageManager = new MessageManager(new EFMessageDAL());
+        AdminManager adminManager = new AdminManager(new EFAdminDAL());
+        WriterManager writerManager = new WriterManager(new EFWriterDAL()); 
 
 
-        public ActionResult Inbox(string p)
+        public ActionResult Inbox()
         {
 
-            var messageList = messageManager.GetReceiveBox(p).Where(m => m.MessageStatus == true).ToList();
+            string email = Session["AdminEmail"].ToString();
+
+            var messageList = messageManager.GetReceiveBox(email).Where(m => m.MessageStatus == true).ToList();
 
             return View(messageList);
 
         }
 
-        public ActionResult SendBox(string p)
+        public ActionResult SendBox()
         {
 
-            var messageList = messageManager.GetSendBox(p).Where(m => m.MessageStatus == true).ToList();
+            string email = Session["AdminEmail"].ToString();
+
+            var messageList = messageManager.GetSendBox(email).Where(m => m.MessageStatus == true).ToList();
 
             return View(messageList);
 
@@ -43,22 +49,54 @@ namespace WriterProject.Controllers
         public ActionResult NewMessage()
         {
 
+            if (TempData["message"] != null)
+            {
+
+                ViewBag.Message = TempData["message"];
+
+            }
+      
+            GetAdmins();
 
             return View();  
+
         }
 
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
 
+              
+            if(message.ReceiverMail == null)
+            {
+
+                TempData["message"] = "Bir admin secilmelidir!";
+
+                return RedirectToAction("NewMessage", "Message");
+
+            }
+       
 
             MessageValidator messageValidator = new MessageValidator();
             ValidationResult validationResult = messageValidator.Validate(message);
 
             if (validationResult.IsValid)
             {
+
+                string email = Session["AdminEmail"].ToString();
+
+                if (email.Contains(message.ReceiverMail))
+                {
+
+                    TempData["message"] = "Kendine mesaj atamazsin!";
+
+                    return RedirectToAction("NewMessage", "Message");
+
+                }
+
                 message.MessageStatus = true;
                 message.Date = DateTime.Now;
+                message.SenderMail = email;
                 messageManager.TAdd(message);
                 return RedirectToAction("SendBox");
 
@@ -76,6 +114,7 @@ namespace WriterProject.Controllers
             }
 
 
+            GetAdmins();
             return View();
 
         }
@@ -119,14 +158,42 @@ namespace WriterProject.Controllers
         public ActionResult RemovedSendMessages()
         {
 
-            var messageList = messageManager.GetSendBox("").Where(m => m.MessageStatus == false).ToList();
+            string email = Session["AdminEmail"].ToString();
+
+            var messageList = messageManager.GetSendBox(email).Where(m => m.MessageStatus == false).ToList();
 
             return View(messageList);
 
         }
 
 
-       
+        protected void GetAdmins()
+        {
+
+            List<SelectListItem> adminsList = (from x in adminManager.TGetList()
+                                    select new SelectListItem
+                                    {
+
+
+                                        Text = x.email,
+                                        Value = x.email
+
+
+                                    }).ToList();
+
+
+            adminsList.Insert(0, new SelectListItem()
+            {
+                Text = "---Admin Seçin---",
+                Value = String.Empty
+
+            });
+
+
+            ViewBag.admins = adminsList;    
+
+        }
+
 
     }
 }
