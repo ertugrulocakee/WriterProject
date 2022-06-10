@@ -1,0 +1,60 @@
+﻿@model Entities.Concrete.Admin
+
+@{
+    ViewBag.Title = "EditAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Admin Düzenle</h4>
+            <br />
+            <br />
+
+            @using (Html.BeginForm("EditAdmin", "Admin", FormMethod.Post))
+            {
+
+                 @Html.HiddenFor(m=>m.id)
+
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.userName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>E-posta Adresi</label>
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label>Şifre</label>
+                    @Html.TextBoxFor(m => m.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <button class="btn btn-success">Güncelle</button>
+
+
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+
