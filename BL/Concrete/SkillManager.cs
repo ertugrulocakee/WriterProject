@@ -19,6 +19,11 @@ namespace BL.Concrete
             this.skillDAL = skillDAL;
         }
 
+        public List<Skill> GetWriterWithSkills(string email)
+        {
+            return skillDAL.FilterList(m => m.Writer.WriterMail.Contains(email)).Where(m=>m.SkillStatus == true).ToList();
+        }
+
         public void TAdd(Skill t)
         {
             skillDAL.Add(t);

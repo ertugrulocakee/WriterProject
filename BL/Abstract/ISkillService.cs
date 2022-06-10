@@ -9,5 +9,8 @@ namespace BL.Abstract
 {
     public interface ISkillService : IGenericService<Skill>
     {
+
+        List<Skill> GetWriterWithSkills(string email);
+
     }
 }

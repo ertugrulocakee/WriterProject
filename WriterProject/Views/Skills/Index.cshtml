@@ -1,12 +1,10 @@
 ﻿@using Entities.Concrete
 @model List<Skill>
 
-
 @{
-
     Layout = null;
-
 }
+
 
 <!--
 Author: W3layouts
@@ -28,6 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--web font-->
     <link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="~/AdminLTE-3.0.4/dist/img/ccc.png" />
     <!--//web font-->
     <!--circle-chart-->
     <script src="~/Skills_Theme/web/js/jquery-1.11.1.min.js"></script>
@@ -60,23 +59,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <p>@Model.FirstOrDefault().Writer.WriterDescription</p>
 
                 </div>
-                <h3 class="title">Yeteneklerim</h3>
+                <h3 class="title" style="text-align:center">Yeteneklerim</h3>
                 <div class="col-md-6 skills-right bar_group">
                     @foreach (var item in Model)
                     {
-                        <div class='bar_group__bar thin' label='@item.SkillName &nbsp;&nbsp; @item.SkillOverall%' value='200'></div> <a href="/Skills/DeleteSkill/@item.SkillID" style="background-color:darkred;color:white">Sil</a> <br/>
-                    }   
+
+                        <p style="color:yellow">Yetenek => @item.SkillName --- Yetenek Yüzdesi : @item.SkillOverall%</p>
+
+                        <a href="/Skills/DeleteSkill/@item.SkillID" style="background-color:darkred;color:white">Yeteneği Sil</a>
+
+                    }
                 </div>
 
                 <!--bar-js-->
                 <script src="~/Skills_Theme/web/js/bars.js"></script>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <a href="/Skills/AddSkill/" style="background-color:darkred;color:white">Yetenek Ekle</a>
                 <div class="clear"> </div>
             </div>
         </div>
-       
+
         <!-- copyright -->
         <div class="copyright">
             <p> © @DateTime.Now.Year E.O - Tüm hakları saklıdır.   W3layouts<a href="http://w3layouts.com/" target="_blank"> tarafından tasarlandı.</a></p>

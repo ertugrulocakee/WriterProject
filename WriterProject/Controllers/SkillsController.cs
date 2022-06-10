@@ -22,9 +22,12 @@ namespace WriterProject.Controllers
         public ActionResult Index()
         {
 
-            var values = skillManager.TGetList().Where(m=>m.SkillStatus == true).ToList();
+            string writerMail = Session["WriterMail"].ToString();
 
-            return View(values);
+            var skills = skillManager.GetWriterWithSkills(writerMail);
+
+            return View(skills);
+
         }
 
       
@@ -32,15 +35,7 @@ namespace WriterProject.Controllers
         public ActionResult AddSkill()
         {
 
-            if (TempData["message"] != null)
-            {
-
-                ViewBag.Message = TempData["message"];  
-
-            }
-
-
-            Writers();
+     
             return View();
 
         }
@@ -48,23 +43,7 @@ namespace WriterProject.Controllers
         [HttpPost]  
         public ActionResult AddSkill(Skill skill)
         {
-            try
-            {
-
-                var writer = writerManager.TGetByID(skill.Writer.WriterID);
-                skill.Writer = writer;
-
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex);
-
-                TempData["message"] = "Secilecek yazar yok! Lutfen once yazar olusturun!";
-
-                return RedirectToAction("AddSkill", "Skills");
-
-            }
+      
 
             SkillValidator validation = new SkillValidator();
             ValidationResult validationResult = validation.Validate(skill);
@@ -72,6 +51,10 @@ namespace WriterProject.Controllers
             if (validationResult.IsValid)
             {
 
+                string writerMail = Session["WriterMail"].ToString();
+
+
+                skill.WriterID = writerManager.GetWriterByMail(writerMail).WriterID;
                 skill.SkillStatus = true;
                 skillManager.TAdd(skill);
                 return RedirectToAction("Index");
@@ -90,9 +73,8 @@ namespace WriterProject.Controllers
 
             }
 
-            Writers();
+       
             return View();
-
 
         }
 
@@ -113,24 +95,6 @@ namespace WriterProject.Controllers
 
         }
 
-        protected void Writers()
-        {
-            List<SelectListItem> writersList = (from x in writerManager.TGetList().Where(m => m.WriterStatus == true)
-                                                select new SelectListItem
-                                                {
-
-
-                                                    Text = x.WriterName + " " + x.WriterSurName,
-                                                    Value = x.WriterID.ToString()
-
-
-                                                }).ToList();
-
-            ViewBag.writers = writersList;
-
-
-        }
-
-
+      
     }
 }
