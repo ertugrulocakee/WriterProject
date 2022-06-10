@@ -42,9 +42,23 @@ namespace WriterProject.Roles
         {
             AdminManager adminManager = new AdminManager(new EFAdminDAL());
 
+            WriterManager writerManager = new WriterManager(new EFWriterDAL());
+
             var admin = adminManager.TGetList().Where(m=>m.email == email).FirstOrDefault();
 
-            return new string[] { admin.role };
+            var writer = writerManager.TGetList().Where(m=>m.WriterMail == email).FirstOrDefault();
+
+            if (admin != null)
+            {
+
+                return new string[] { admin.role };
+
+            }else
+            {
+
+                return new string[] { writer.role };
+
+            }
 
 
         }

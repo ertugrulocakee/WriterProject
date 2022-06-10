@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
+    [Authorize(Roles="2")]
     public class SkillsController : Controller
     {
         // GET: Skills

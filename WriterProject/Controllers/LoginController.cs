@@ -87,7 +87,7 @@ namespace WriterProject.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(writerLoginViewModel.WriterMail, false);
                     Session["WriterMail"] = writerLoginViewModel.WriterMail;
-                    return RedirectToAction("MyContent", "WriterPanelContent");
+                    return RedirectToAction("WriterProfile", "WriterPanel");
 
                 }
                 else

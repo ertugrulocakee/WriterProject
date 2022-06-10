@@ -8,10 +8,10 @@ namespace WriterProject.Models
 {
     public class WriterLoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="E-posta adresi boş olamaz!")]
         public string WriterMail { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Şifre boş olamaz!")]
         public string WriterPassword { get; set; }  
 
     }

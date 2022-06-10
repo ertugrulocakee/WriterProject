@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Roles="2")]
     public class DefaultController : Controller
     {
         // GET: Default

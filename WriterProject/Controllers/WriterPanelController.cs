@@ -15,6 +15,7 @@ using System.IO;
 
 namespace WriterProject.Controllers
 {
+    [Authorize(Roles="2")]
     public class WriterPanelController : Controller
     {
         // GET: WriterPanel
@@ -360,6 +361,15 @@ namespace WriterProject.Controllers
         }
 
 
+        public PartialViewResult WriterPicture()
+        {
+
+            ViewBag.picture = writerManager.GetWriterByMail(Session["WriterMail"].ToString()).WriterImage;
+            ViewBag.nameSurname = writerManager.GetWriterByMail(Session["WriterMail"].ToString()).WriterName + " " + writerManager.GetWriterByMail(Session["WriterMail"].ToString()).WriterSurName;
+
+            return PartialView();
+
+        }
 
 
 

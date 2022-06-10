@@ -8,18 +8,14 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
+    [Authorize(Roles = "1")]
     public class ContentController : Controller
     {
         // GET: Content
 
         ContentManager contentManager = new ContentManager(new EFContentDAL());
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "1")]
+       
         public ActionResult GetAllContents(string p)
         {
 
@@ -27,7 +23,6 @@ namespace WriterProject.Controllers
             return View(values);
 
         }
-
 
         public ActionResult ContentByHeader(int id)
         {

@@ -5,19 +5,11 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-@if (ViewBag.Message != null)
-{
-    <script type="text/javascript">
-        window.onload = function () {
-            alert('@ViewBag.Message');
-        };
-    </script>
-}
 
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">İçerik Ekle...</h4>
+            <h4 class="card-title">İçerik Ekle</h4>
             <br />
             <br />
 
@@ -29,14 +21,14 @@
 
                     <input type="hidden" name="HeadingID" value="@ViewBag.Id"/>
 
-                    <label>Başlık için yaz...</label>
+                    <label>Başlık için yaz!</label>
+
                     @Html.TextAreaFor(m => m.ContentValue,10,8, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.ContentValue, "", new { @class = "text-danger" })
+
                 </div>
 
-             
-
-
+                
                 <button class="btn btn-success">Ekle</button>
 
 

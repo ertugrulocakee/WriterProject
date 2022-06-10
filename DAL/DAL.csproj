@@ -141,6 +141,14 @@
     <Compile Include="Migrations\202206092023466_removeimagefile.designer.cs">
       <DependentUpon>202206092023466_removeimagefile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206101152048_addrolewriter.cs" />
+    <Compile Include="Migrations\202206101152048_addrolewriter.designer.cs">
+      <DependentUpon>202206101152048_addrolewriter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101816238_fixcontent.cs" />
+    <Compile Include="Migrations\202206101816238_fixcontent.designer.cs">
+      <DependentUpon>202206101816238_fixcontent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -205,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206092023466_removeimagefile.resx">
       <DependentUpon>202206092023466_removeimagefile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101152048_addrolewriter.resx">
+      <DependentUpon>202206101152048_addrolewriter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101816238_fixcontent.resx">
+      <DependentUpon>202206101816238_fixcontent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

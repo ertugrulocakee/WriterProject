@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
+    [Authorize(Roles="2")]
     public class WriterPanelMessageController : Controller
     {
         // GET: WriterPanelMessage
@@ -95,6 +96,15 @@ namespace WriterProject.Controllers
         public ActionResult NewMessage()
         {
 
+
+            if (TempData["message"] != null)
+            {
+
+                ViewBag.Message = TempData["message"];
+
+            }
+
+            GetWriters();
             return View();
 
         }
@@ -103,6 +113,16 @@ namespace WriterProject.Controllers
         public ActionResult NewMessage(Message message)
         {
 
+            if (message.ReceiverMail == null)
+            {
+
+                TempData["message"] = "Bir yazar secilmelidir!";
+
+                return RedirectToAction("NewMessage", "WriterPanelMessage");
+
+            }
+
+
             MessageValidator messageValidator = new MessageValidator();
             ValidationResult validationResult = messageValidator.Validate(message);
 
@@ -110,6 +130,16 @@ namespace WriterProject.Controllers
             {
 
                 string writerMail = Session["WriterMail"].ToString();
+
+                if (writerMail.Contains(message.ReceiverMail))
+                {
+
+                    TempData["message"] = "Kendine mesaj atamazsin!";
+
+                    return RedirectToAction("NewMessage", "WriterPanelMessage");
+
+                }
+
                 message.SenderMail = writerMail;
                 message.MessageStatus = true;
                 message.Date = DateTime.Now;
@@ -129,8 +159,37 @@ namespace WriterProject.Controllers
 
             }
 
-
+            GetWriters();
             return View();
+
+
+        }
+
+
+        protected void GetWriters()
+        {
+
+            List<SelectListItem> writersList = (from x in writerManager.TGetList().Where(m=>m.WriterStatus==true)
+                                               select new SelectListItem
+                                               {
+
+
+                                                   Text = x.WriterMail,
+                                                   Value = x.WriterMail
+
+
+                                               }).ToList();
+
+
+            writersList.Insert(0, new SelectListItem()
+            {
+                Text = "---Yazar Seçin---",
+                Value = String.Empty
+
+            });
+
+
+            ViewBag.writers = writersList;
 
 
         }

@@ -30,6 +30,8 @@ namespace Entities.Concrete
 
         public string WriterDescription { get; set; }   
 
+        public string role { get; set; }
+
         public bool WriterStatus { get; set; }
 
         public ICollection<Heading> Headings { get; set; }

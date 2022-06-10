@@ -138,8 +138,8 @@ to get the desired effect
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="~/AdminLTE-3.0.4/index3.html" class="brand-link">
-                <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <a href="/WriterPanel/WriterProfile/" class="brand-link">
+                <img src="~/AdminLTE-3.0.4/dist/img/ccc.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">Yazar Paneli</span>
             </a>
@@ -148,12 +148,9 @@ to get the desired effect
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
-                    </div>
+                   
+                    @Html.Action("WriterPicture","WriterPanel")
+
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -163,7 +160,7 @@ to get the desired effect
          with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="/WriterPanel/WriterProfile/" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-user-circle"></i>
                                 <p>
                                     Profilim
                                 </p>
@@ -192,7 +189,7 @@ to get the desired effect
 
                         <li class="nav-item">
                             <a href="/WriterPanelContent/MyContent/" class="nav-link">
-                                <i class="nav-icon fas fa-calendar"></i>
+                                <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Yazılarım
 
@@ -211,13 +208,13 @@ to get the desired effect
 
                         <li class="nav-item">
                             <a href="/Default/Headings/" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
-                                <p>Siteye Git</p>
+                                <i class="nav-icon fas fa-arrow-right"></i>
+                                <p>Başlık akışına git</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Login/LogOut/" class="nav-link">
-                                <i class="fas fa-circle nav-icon"></i>
+                                <i class="nav-icon fas fa-arrow-left"></i>
                                 <p>Çıkış Yap</p>
                             </a>
                         </li>
@@ -252,7 +249,7 @@ to get the desired effect
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; @DateTime.Now.Year <a href="http://adminlte.io">YAZAR PROJESİ</a></strong>
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="http://adminlte.io">OCAK SÖZLÜK</a></strong>
             Tüm hakları saklıdır.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Created by</b> E.O

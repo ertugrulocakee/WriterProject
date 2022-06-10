@@ -75,6 +75,7 @@
     <Compile Include="Validation\AdminValidator.cs" />
     <Compile Include="Validation\CategoryValidator.cs" />
     <Compile Include="Validation\ContactValidator.cs" />
+    <Compile Include="Validation\ContentValidator.cs" />
     <Compile Include="Validation\HeadingValidator.cs" />
     <Compile Include="Validation\MessageValidator.cs" />
     <Compile Include="Validation\SkillValidator.cs" />
