@@ -2865,8 +2865,6 @@
     <Content Include="Views\Category\AddCategory.cshtml" />
     <Content Include="Views\Category\UpdateCategory.cshtml" />
     <Content Include="Views\Writer\Index.cshtml" />
-    <Content Include="Views\Writer\AddWriter.cshtml" />
-    <Content Include="Views\Writer\UpdateWriter.cshtml" />
     <Content Include="Views\Content\ContentByHeader.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />

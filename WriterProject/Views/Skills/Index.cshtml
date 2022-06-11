@@ -1,10 +1,9 @@
 ﻿@using Entities.Concrete
-@model List<Skill>
+@model Tuple<Writer,List<Skill>>
 
 @{
     Layout = null;
 }
-
 
 <!--
 Author: W3layouts
@@ -54,31 +53,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
                 <div class="profile-grid logo wthree">
-                    <img src="@Model.FirstOrDefault().Writer.WriterImage" alt="Yazar Görseli">
-                    <h2>@Model.FirstOrDefault().Writer.WriterName @Model.FirstOrDefault().Writer.WriterSurName</h2>
-                    <p>@Model.FirstOrDefault().Writer.WriterDescription</p>
+                    <img src="@Model.Item1.WriterImage" alt="Yazar Görseli">
+                    <h2>@Model.Item1.WriterName @Model.Item1.WriterSurName</h2>
+                    <p>@Model.Item1.WriterDescription</p>
 
                 </div>
-                <h3 class="title" style="text-align:center">Yeteneklerim</h3>
-                <div class="col-md-6 skills-right bar_group">
-                    @foreach (var item in Model)
-                    {
 
+                <h3 class="title" style="text-align:center">Yeteneklerim</h3>
+
+                @foreach (var item in Model.Item2)
+                {
+                    <div class="col-md-6 skills-right bar_group">
                         <p style="color:yellow">Yetenek => @item.SkillName --- Yetenek Yüzdesi : @item.SkillOverall%</p>
 
                         <a href="/Skills/DeleteSkill/@item.SkillID" style="background-color:darkred;color:white">Yeteneği Sil</a>
 
-                    }
-                </div>
 
-                <!--bar-js-->
-                <script src="~/Skills_Theme/web/js/bars.js"></script>
-                <br />
-                <br />
-                <a href="/Skills/AddSkill/" style="background-color:darkred;color:white">Yetenek Ekle</a>
-                <div class="clear"> </div>
-            </div>
+                    </div>
+                 }
+                
+
+                    <!--bar-js-->
+                    <script src="~/Skills_Theme/web/js/bars.js"></script>
+                    <br />
+                    <br />
+                    <a href="/Skills/AddSkill/" style="background-color:darkred;color:white">Yetenek Ekle</a>
+                    <div class="clear"> </div>
+                </div>
         </div>
+
+        <div style="text-align:center">
+        <a href="/WriterPanel/WriterProfile/" style="background-color:darkred;color:white">Yazar Paneline Geri Dön</a>
+        </div>  
 
         <!-- copyright -->
         <div class="copyright">

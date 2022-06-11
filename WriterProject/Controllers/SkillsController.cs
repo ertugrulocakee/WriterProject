@@ -24,9 +24,11 @@ namespace WriterProject.Controllers
 
             string writerMail = Session["WriterMail"].ToString();
 
+            var writer = writerManager.GetWriterByMail(writerMail);
+
             var skills = skillManager.GetWriterWithSkills(writerMail);
 
-            return View(skills);
+            return View(new Tuple<Writer,List<Skill>>(writer,skills));
 
         }
 

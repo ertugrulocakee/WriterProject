@@ -78,7 +78,7 @@ namespace WriterProject.Controllers
         public ActionResult WriterLogin(WriterLoginViewModel writerLoginViewModel)
         {
 
-            var values = writerManager.TGetList().Where(m => m.WriterMail == writerLoginViewModel.WriterMail && m.WriterPassword == writerLoginViewModel.WriterPassword).FirstOrDefault();
+            var values = writerManager.TGetList().Where(m=>m.WriterStatus == true).Where(m => m.WriterMail == writerLoginViewModel.WriterMail && m.WriterPassword == writerLoginViewModel.WriterPassword).FirstOrDefault();
 
 
             if (ModelState.IsValid)

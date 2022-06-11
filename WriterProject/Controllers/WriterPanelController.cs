@@ -12,6 +12,7 @@ using PagedList;
 using PagedList.Mvc;
 using WriterProject.Models;
 using System.IO;
+using System.Web.Security;
 
 namespace WriterProject.Controllers
 {
@@ -383,6 +384,23 @@ namespace WriterProject.Controllers
 
         }
 
+
+        public ActionResult DeleteWriter(int id)
+        {
+
+            var value = writerManager.TGetByID(id);
+
+            value.WriterStatus = false;
+
+            writerManager.TUpdate(value);
+
+            FormsAuthentication.SignOut();
+
+            Session.Abandon();
+
+            return RedirectToAction("HomePage", "Home");
+
+        }
 
 
     }
