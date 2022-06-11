@@ -1,0 +1,58 @@
+﻿@using Entities.Concrete
+@model Testimonial
+
+@{
+    ViewBag.Title = "MyTestimonial";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Referans Düzenleme Sayfası</h4>
+            <br />
+            <br />
+
+            @using (Html.BeginForm("MyTestimonial", "Testimonial", FormMethod.Post))
+            {
+
+                
+                @Html.HiddenFor(m => m.TestimonialID)
+
+              
+                <div class="form-group">
+                    <label>Referansınız</label>
+                    @Html.TextAreaFor(m => m.TestimonialValue, 6, 8, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.TestimonialValue, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <button class="btn btn-success">Güncelle</button>
+
+            }
+
+            <br />
+            <br />
+
+            <a href="/Testimonial/RemoveTestimonial/@Model.TestimonialID" class="btn btn-danger"> Referansını Sil </a>
+
+        </div>
+    </div>
+</div>
+
+
+
+

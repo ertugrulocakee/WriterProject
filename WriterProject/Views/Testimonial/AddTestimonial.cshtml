@@ -1,0 +1,41 @@
+﻿@using Entities.Concrete
+@model Testimonial
+
+@{
+    ViewBag.Title = "AddTestimonial";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Referans Oluşturma Sayfası</h4>
+            <br />
+            <br />
+
+            @using (Html.BeginForm("AddTestimonial", "Testimonial", FormMethod.Post))
+            {
+
+
+
+                <div class="form-group">
+                    <label>Referansınız</label>
+                    @Html.TextAreaFor(m => m.TestimonialValue, 6, 8, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.TestimonialValue, "", new { @class = "text-danger" })
+                </div>
+
+
+                <button class="btn btn-success">Oluştur</button>
+
+            }
+
+   
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

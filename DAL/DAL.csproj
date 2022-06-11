@@ -59,6 +59,7 @@
     <Compile Include="Abstract\IGenericDAL.cs" />
     <Compile Include="Abstract\IMessageDAL.cs" />
     <Compile Include="Abstract\ISkillDAL.cs" />
+    <Compile Include="Abstract\ITestimonialDAL.cs" />
     <Compile Include="Abstract\IWriterDAL.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="EF\EFAdminDAL.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="EF\EFHeadingDAL.cs" />
     <Compile Include="EF\EFMessageDAL.cs" />
     <Compile Include="EF\EFSkillDAL.cs" />
+    <Compile Include="EF\EFTestimonialDAL.cs" />
     <Compile Include="EF\EFWriterDAL.cs" />
     <Compile Include="Migrations\202205121031322_first.cs" />
     <Compile Include="Migrations\202205121031322_first.designer.cs">
@@ -149,6 +151,14 @@
     <Compile Include="Migrations\202206101816238_fixcontent.designer.cs">
       <DependentUpon>202206101816238_fixcontent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206111318170_addtestimonial.cs" />
+    <Compile Include="Migrations\202206111318170_addtestimonial.designer.cs">
+      <DependentUpon>202206111318170_addtestimonial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206111411463_fixtestimonial.cs" />
+    <Compile Include="Migrations\202206111411463_fixtestimonial.designer.cs">
+      <DependentUpon>202206111411463_fixtestimonial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -219,6 +229,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206101816238_fixcontent.resx">
       <DependentUpon>202206101816238_fixcontent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206111318170_addtestimonial.resx">
+      <DependentUpon>202206111318170_addtestimonial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206111411463_fixtestimonial.resx">
+      <DependentUpon>202206111411463_fixtestimonial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

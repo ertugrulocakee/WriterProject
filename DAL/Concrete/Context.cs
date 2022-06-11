@@ -27,6 +27,8 @@ namespace DAL.Concrete
 
         public DbSet<Skill> Skills { get; set; }
 
+        public DbSet<Testimonial> Testimonials { get; set; }    
+
 
 
     }
