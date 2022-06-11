@@ -403,5 +403,30 @@ namespace WriterProject.Controllers
         }
 
 
+        public PartialViewResult MessageBox()
+        {
+
+            MessageManager messageManager = new MessageManager(new EFMessageDAL());
+
+            string writerMail = Session["WriterMail"].ToString();
+
+            var messages = messageManager.GetReceiveBox(writerMail).Where(m=>m.MessageStatus==true).OrderByDescending(m=>m.Date).Take(5).ToList();
+
+            ViewBag.messageCount = messageManager.GetReceiveBox(writerMail).Where(m => m.MessageStatus == true).Count();
+
+            return PartialView(messages);
+
+        }
+
+        public PartialViewResult NotificationBox()
+        {
+            var headings = headingManager.TGetList().Where(m => m.HeadingStatus == true).OrderByDescending(m => m.HeadingDate).Take(5).ToList();
+
+            ViewBag.headingCount = headingManager.TGetList().Where(m => m.HeadingStatus == true).Count();
+
+            return PartialView(headings);
+
+        }
+
     }
 }

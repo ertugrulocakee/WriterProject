@@ -7,8 +7,8 @@
 @if (ViewBag.Message != null)
 {
     <script type="text/javascript">
-        window.onload = function () {
-            alert('@ViewBag.Message');
+        window.onload = function() {
+            alert('@ViewBag.Message');            
         };
     </script>
 }
@@ -27,8 +27,9 @@
     <link rel="stylesheet" href="~/login-form-20/login-form-20/css/style.css">
 
     <link rel="shortcut icon" href="~/AdminLTE-3.0.4/dist/img/ccc.png" />
-
+ 
 </head>
+
 <body class="img js-fullheight" style="background-image: url(/login-form-20/login-form-20/images/bg.jpg);">
     <section class="ftco-section">
         <div class="container">
@@ -44,12 +45,12 @@
                         @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
                         {
                             <div class="form-group">
-                                @Html.TextBoxFor(m => m.WriterMail, new { @class = "form-control", @placeholder = "E-posta"})
+                                @Html.TextBoxFor(m => m.WriterMail, new { @class = "form-control", @placeholder = "E-posta" })
                                 @Html.ValidationMessageFor(m => m.WriterMail, "", new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group">
-                                @Html.PasswordFor(m => m.WriterPassword, new { @class = "form-control", @placeholder = "Şifre" })
+                                @Html.PasswordFor(m => m.WriterPassword, new { @class = "form-control", @placeholder = "Şifre", @required = "required" })
                                 @Html.ValidationMessageFor(m => m.WriterPassword, "", new { @class = "text-danger" })
                             </div>
 
@@ -62,13 +63,10 @@
                             <div class="w-50">
                                 <a href="/Login/Register/" class="mb-4 text-center" style="color:white">Bir hesabın yok mu?</a>
                             </div>
-                            <div class="w-50 text-md-right">
-                                <a href="#" style="color: #ffffff">Şifreni mi unuttun?</a>
-                            </div>
+                          
                         </div>
 
-                        
-
+          
                     </div>
                 </div>
             </div>

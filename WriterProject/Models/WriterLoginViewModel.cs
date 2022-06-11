@@ -11,7 +11,7 @@ namespace WriterProject.Models
         [Required(ErrorMessage ="E-posta adresi boş olamaz!")]
         public string WriterMail { get; set; }
 
-        [Required(ErrorMessage ="Şifre boş olamaz!")]
+        [Required(ErrorMessage = "Şifre boş olamaz!")]
         public string WriterPassword { get; set; }  
 
     }

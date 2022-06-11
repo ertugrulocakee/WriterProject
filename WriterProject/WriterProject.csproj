@@ -2930,6 +2930,8 @@
     <Content Include="Views\Testimonial\MyTestimonial.cshtml" />
     <Content Include="Views\Testimonial\AddTestimonial.cshtml" />
     <Content Include="Views\Home\Testimonials.cshtml" />
+    <Content Include="Views\WriterPanel\MessageBox.cshtml" />
+    <Content Include="Views\WriterPanel\NotificationBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
