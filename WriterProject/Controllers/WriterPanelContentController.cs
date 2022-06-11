@@ -20,14 +20,27 @@ namespace WriterProject.Controllers
         ContentManager contentManager = new ContentManager(new EFContentDAL());
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
 
-        public ActionResult MyContent()
+        public ActionResult MyContent(string p)
         {
 
             string writerMail = Session["WriterMail"].ToString();
 
             int id = writerManager.GetWriterByMail(writerMail).WriterID;
 
-            var contentValues = contentManager.GetListByWriter(id).Where(m => m.ContentStatus == true).ToList();
+            var contentValues = contentManager.GetListByWriter(id);
+
+            if (p != null)
+            {
+
+               contentValues = contentValues.Where(m => m.ContentStatus == true && m.ContentValue.Contains(p)).ToList();
+
+            }
+            else
+            {
+              contentValues = contentValues.Where(m => m.ContentStatus == true).ToList();
+
+            }
+           
             return View(contentValues);
 
         }

@@ -6,6 +6,20 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
+@using (Html.BeginForm("MyContent", "WriterPanelContent", FormMethod.Get))
+{
+
+    <p>
+
+
+        Aranacak kelimeyi seçiniz: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+
+    </p>
+
+}
+
+
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -31,16 +45,16 @@
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
-                        <div>
-                            @*<i class="fas fa-comment bg-yellow"></i>*@
-                            <img src="@item.Writer.WriterImage" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">@item.Heading.HeadingName</h3>
-                                <div class="timeline-body">
-                                    @item.ContentValue
+                                <div>
+                                    @*<i class="fas fa-comment bg-yellow"></i>*@
+                                    <img src="@item.Writer.WriterImage" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">@item.Heading.HeadingName</h3>
+                                        <div class="timeline-body">
+                                            @item.ContentValue
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
                             }
                             <!-- END timeline item -->
                         </div>
