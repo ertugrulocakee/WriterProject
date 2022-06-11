@@ -2925,6 +2925,7 @@
     <Content Include="Views\Admin\EditAdmin.cshtml" />
     <Content Include="Views\WriterPanelContent\ContentByHeader.cshtml" />
     <Content Include="Views\WriterPanel\WriterPicture.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

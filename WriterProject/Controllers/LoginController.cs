@@ -5,6 +5,7 @@ using Entities.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,12 +28,12 @@ namespace WriterProject.Controllers
             return View();
         }
 
-        [HttpPost]  
+        [HttpPost]
         public ActionResult Index(AdminLoginViewModel adminLoginViewModel)
         {
 
-            var value = adminManager.TGetList().Where(m=>m.email == adminLoginViewModel.email && m.password == adminLoginViewModel.password).FirstOrDefault();
-      
+            var value = adminManager.TGetList().Where(m => m.email == adminLoginViewModel.email && m.password == adminLoginViewModel.password).FirstOrDefault();
+
             if (ModelState.IsValid)
             {
 
@@ -57,7 +58,7 @@ namespace WriterProject.Controllers
             {
 
 
-                  return View();
+                return View();
 
 
             }
@@ -80,7 +81,7 @@ namespace WriterProject.Controllers
             var values = writerManager.TGetList().Where(m => m.WriterMail == writerLoginViewModel.WriterMail && m.WriterPassword == writerLoginViewModel.WriterPassword).FirstOrDefault();
 
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
                 if (values != null)
@@ -121,6 +122,111 @@ namespace WriterProject.Controllers
             return RedirectToAction("HomePage", "Home");
         }
 
-      
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+
+
+            if (TempData["message"] != null)
+            {
+
+                ViewBag.Message = TempData["message"];
+
+            }
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Register(WriterViewModel writerViewModel)
+        {
+
+            Writer writer = new Writer();
+
+
+            writer.WriterName = writerViewModel.WriterName;
+            writer.WriterSurName = writerViewModel.WriterSurName;
+            writer.WriterMail = writerViewModel.WriterMail;
+            writer.WriterPassword = writerViewModel.WriterPassword;
+            writer.WriterDescription = writerViewModel.WriterDescription;
+
+
+            WriterValidation writerValidator = new WriterValidation();
+            ValidationResult validationResult = writerValidator.Validate(writer);
+
+
+            if (validationResult.IsValid)
+            {
+
+                var values = writerManager.TGetList().Where(m => m.WriterMail == writer.WriterMail || m.WriterPassword == writer.WriterPassword).ToList();
+
+                if (values.Any())
+                {
+
+                    TempData["message"] = "Lutfen e-posta ve sifre benzersiz degerlere sahip olsun!";
+
+                    return RedirectToAction("WriterLogin", "Login");
+
+                }
+
+
+                string[] validFileTypes = { "gif", "jpg", "png" };
+                bool isValidType = false;
+
+
+                string fileName = Path.GetFileName(writerViewModel.Image.FileName);
+                string extension = Path.GetExtension(writerViewModel.Image.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidType = true;
+                        break;
+                    }
+                }
+
+                if (!isValidType)
+                {
+                    TempData["message"] = "Lutfen png,jpg ve gif dosyasi yukleyin!";
+
+                    return RedirectToAction("WriterLogin", "Login");
+
+                }
+
+
+                writerViewModel.ImagePath = "/Images/WriterImages/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Images/WriterImages/"), fileName);
+                writerViewModel.Image.SaveAs(fileName);
+
+
+                writer.WriterImage = writerViewModel.ImagePath;
+                writer.WriterStatus = true;
+                writer.role = "2";
+                writerManager.TAdd(writer);
+                return RedirectToAction("WriterLogin");
+
+            }
+            else
+            {
+
+                foreach (var item in validationResult.Errors)
+                {
+
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+
+                }
+
+                return View();
+
+            }
+
+
+
+        }
+
+
     }
 }
