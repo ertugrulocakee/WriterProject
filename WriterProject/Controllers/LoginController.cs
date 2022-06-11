@@ -160,14 +160,25 @@ namespace WriterProject.Controllers
             if (validationResult.IsValid)
             {
 
-                var values = writerManager.TGetList().Where(m => m.WriterMail == writer.WriterMail || m.WriterPassword == writer.WriterPassword).ToList();
+                var values = writerManager.TGetList().Where(m => m.WriterStatus == true).Where(m => m.WriterMail == writer.WriterMail).ToList();
 
                 if (values.Any())
                 {
 
-                    TempData["message"] = "Lutfen e-posta ve sifre benzersiz degerlere sahip olsun!";
+                    TempData["message"] = "Lutfen e-posta adresiniz benzersiz olsun! Bu e-posta kullaniliyor!";
 
-                    return RedirectToAction("WriterLogin", "Login");
+                    return RedirectToAction("Register", "Login");
+
+                }
+
+                var valuesAdmin = adminManager.TGetList().Where(m => m.email == writer.WriterMail).ToList();
+
+                if (valuesAdmin.Any())
+                {
+
+                    TempData["message"] = "Lutfen e-posta adresiniz benzersiz olsun! Bu e-posta kullaniliyor!";
+
+                    return RedirectToAction("Register", "Login");
 
                 }
 
@@ -192,7 +203,7 @@ namespace WriterProject.Controllers
                 {
                     TempData["message"] = "Lutfen png,jpg ve gif dosyasi yukleyin!";
 
-                    return RedirectToAction("WriterLogin", "Login");
+                    return RedirectToAction("Register", "Login");
 
                 }
 

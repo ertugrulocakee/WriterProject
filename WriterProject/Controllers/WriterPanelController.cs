@@ -23,6 +23,7 @@ namespace WriterProject.Controllers
         HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
         CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL());
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
+        AdminManager adminManager = new AdminManager(new EFAdminDAL());
 
         [HttpGet]
         public ActionResult WriterProfile()
@@ -76,12 +77,23 @@ namespace WriterProject.Controllers
             if (validationResult.IsValid)
             {
 
-                var values = writerManager.TGetList().Where(m => (m.WriterMail == writer.WriterMail || m.WriterPassword == writer.WriterPassword) && m.WriterID != writer.WriterID && m.WriterStatus == true).ToList();
+                var values = writerManager.TGetList().Where(m => (m.WriterMail == writer.WriterMail) && m.WriterID != writer.WriterID && m.WriterStatus == true).ToList();
 
                 if (values.Any())
                 {
 
-                    TempData["message"] = "Lutfen e-posta ve sifre benzersiz degerlere sahip olsun!";
+                    TempData["message"] = "Lutfen e-posta adresiniz benzersiz olsun! Bu e-posta kullaniliyor!";
+
+                    return RedirectToAction("WriterProfile", "WriterPanel");
+
+                }
+
+                var valuesAdmin = adminManager.TGetList().Where(m => m.email == writer.WriterMail).ToList();
+
+                if (valuesAdmin.Any())
+                {
+
+                    TempData["message"] = "Lutfen e-posta adresiniz benzersiz olsun! Bu e-posta kullaniliyor!";
 
                     return RedirectToAction("WriterProfile", "WriterPanel");
 

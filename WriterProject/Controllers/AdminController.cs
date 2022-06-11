@@ -49,7 +49,7 @@ namespace WriterProject.Controllers
 
                 }
 
-                var writers = writerManager.TGetList().Where(m => m.WriterMail == admin.email).ToList();
+                var writers = writerManager.TGetList().Where(m=>m.WriterStatus == true).Where(m => m.WriterMail == admin.email).ToList();
 
                 if (writers.Any())
                 {
@@ -120,7 +120,7 @@ namespace WriterProject.Controllers
 
                 }
 
-                var writers = writerManager.TGetList().Where(m => m.WriterMail == admin.email).ToList();
+                var writers = writerManager.TGetList().Where(m=>m.WriterStatus==true).Where(m => m.WriterMail == admin.email).ToList();
 
                 if (writers.Any())
                 {
