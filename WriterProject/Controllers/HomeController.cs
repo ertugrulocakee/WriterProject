@@ -119,6 +119,16 @@ namespace WriterProject.Controllers
 
         }
 
+        public PartialViewResult Testimonials()
+        {
+
+            TestimonialManager testimonialManager = new TestimonialManager(new EFTestimonialDAL());
+
+            var testimonials = testimonialManager.TGetList().Where(m => m.TestimonialStatus == true).ToList();
+
+            return PartialView(testimonials);
+
+        }
 
     }
 }
