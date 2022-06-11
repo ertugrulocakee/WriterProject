@@ -16,6 +16,7 @@ namespace BL.Validation
         {
 
             RuleFor(x => x.UserMail).NotEmpty().WithMessage("E-posta boş olamaz!");
+            RuleFor(x => x.UserMail).EmailAddress().WithMessage("Lütfen e-posta girişi yapın!");
             RuleFor(x => x.UserName).NotEmpty().WithMessage("Kullanıcı adı boş olamaz!");
             RuleFor(x => x.Subject).NotEmpty().WithMessage("Konu başlığı boş olamaz!");
             RuleFor(x => x.Message).NotEmpty().WithMessage("Mesaj boş olamaz!");

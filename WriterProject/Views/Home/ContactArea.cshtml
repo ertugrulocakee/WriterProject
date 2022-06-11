@@ -1,0 +1,60 @@
+﻿@model Entities.Concrete.Contact
+
+<section class="contact py-lg-5 py-md-5 py-3" id="contact">
+    <div class="container">
+        <div class="inner-sec-w3ls py-lg-5 py-3">
+            <h4 class="sub-tittle-w3 text-uppercase text-center">Hadi!</h4>
+            <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center text-white">Bizimle iletişime geç!</h3>
+
+            <div class="contact_grid_right">
+                @using (Html.BeginForm("HomePage", "Home", FormMethod.Post))
+                {
+                    <div class="row contact_left_grid">
+                        <div class="col-md-6 con-left" data-aos="fade-up">
+                            <div class="form-group">
+
+                                <label>Adınız</label>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+
+                                <label>E-posta Adresiniz</label>
+                                @Html.TextBoxFor(m => m.UserMail, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserMail, "", new { @class = "text-danger" })
+
+
+                            </div>
+                            <div class="form-group">
+
+                                <label>Mesaj Başlığı</label>
+                                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 con-right" data-aos="fade-up">
+                            <div class="form-group">
+
+                                <label>Mesajınız</label>
+                                @Html.TextAreaFor(m => m.Message,10,8, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                        <div class="sub-honey mx-auto mt-3">
+                           
+                            <button class="form-control">Mesajı Gönder</button>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+
+        </div>
+    </div>
+</section>

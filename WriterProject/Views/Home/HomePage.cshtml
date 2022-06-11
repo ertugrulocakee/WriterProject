@@ -10,6 +10,16 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -20,7 +30,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta charset="UTF-8" />
     <meta name="keywords" content="Recognize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script>
-        addEventListener("load", function() {
+        addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
 
@@ -91,10 +101,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <a class="scroll" href="#contact">İletişim</a>
                     </li>
                     <li>
-                        <a href="/Login/Index/" > Giriş Yap - Admin </a>
+                        <a href="/Login/Index/"> Giriş Yap - Admin </a>
                     </li>
                     <li>
-                        <a  href="/Login/WriterLogin/"> Giriş Yap - Yazar </a>
+                        <a href="/Login/WriterLogin/"> Giriş Yap - Yazar </a>
                     </li>
 
                 </ul>
@@ -141,42 +151,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </section>
     <!--// ab -->
-
     <!--/stats-->
-    <section class="stats py-lg-5 py-4" id="stats">
-        <div class="gallery-inner container py-md-5 py-4">
-            <div class="row mt-lg-5 stats-con text-white">
-                <div class="col-sm-3 col-6 stats_info counter_grid">
-
-                    <i class="far fa-lightbulb"></i>
-                    <p class="counter">645</p>
-                    <h4>Projects Done</h4>
-
-                </div>
-                <div class="col-sm-3 col-6 stats_info counter_grid1">
-
-                    <i class="far fa-heart"></i>
-                    <p class="counter">563</p>
-                    <h4>Satisfied Clients</h4>
-
-                </div>
-                <div class="col-sm-3 col-6 stats_info counter_grid">
-
-                    <i class="fas fa-magic"></i>
-                    <p class="counter">1145</p>
-                    <h4>Awards</h4>
-
-                </div>
-                <div class="col-sm-3 col-6 stats_info counter_grid2">
-
-                    <i class="far fa-smile"></i>
-                    <p class="counter">1045</p>
-                    <h4>Happy Clients</h4>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    @Html.Action("CountsArea", "Home")
     <!--//stats-->
     <!-- /testimonials -->
     <div class="testimonials py-lg-5 py-4" id="clients">
@@ -240,44 +216,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
     <!-- //testimonials -->
     <!-- /Contact-->
-    <section class="contact py-lg-5 py-md-5 py-3" id="contact">
-        <div class="container">
-            <div class="inner-sec-w3ls py-lg-5 py-3">
-                <h4 class="sub-tittle-w3 text-uppercase text-center">Hadi!</h4>
-                <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center text-white">Bizimle iletişime geç!</h3>
-
-                <div class="contact_grid_right">
-                    <form action="#" method="post">
-                        <div class="row contact_left_grid">
-                            <div class="col-md-6 con-left" data-aos="fade-up">
-                                <div class="form-group">
-
-                                    <input class="form-control" type="text" name="Name" placeholder="" required="">
-                                </div>
-                                <div class="form-group">
-
-                                    <input class="form-control" type="email" name="Email" placeholder="" required="">
-                                </div>
-                                <div class="form-group">
-
-                                    <input class="form-control" type="text" name="Subject" placeholder="" required="">
-                                </div>
-                            </div>
-                            <div class="col-md-6 con-right" data-aos="fade-up">
-                                <div class="form-group">
-                                    <textarea id="textarea" placeholder="" required=""></textarea>
-                                </div>
-                            </div>
-                            <div class="sub-honey mx-auto mt-3">
-                                <input class="form-control" type="submit" value="Gönder">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-          
-            </div>
-        </div>
-    </section>
+    @Html.Action("ContactArea", "Home")
     <!-- //Contact -->
     <!--/footer-->
     <footer class="footer text-left">
@@ -318,7 +257,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     </ul>
                 </div>
-     
+
                 <div class="offset-lg-4"></div>
                 <div class="col-lg-4 footer-end-grid mt-md-0 mt-sm-5" data-aos="fade-up">
                     <h2>
@@ -337,7 +276,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     </p>
                 </div>
-              
+
             </div>
         </div>
     </footer>
@@ -398,58 +337,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="~/web/js/jquery.roadmap.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var events = [{
-                    date: 'Oct 2018 - Present',
-                    content: 'Company Name <small>Co-founder, Front-end Designer</small>'
-                },
-                {
-                    date: '2016 - 2018',
-                    content: 'Company Name <small>Senior Visual Designer</small>'
-                },
-                {
-                    date: '2013 - 2016',
-                    content: 'Company Name <small>Mid-level Designer</small>'
-                },
-                {
-                    date: '2012 - 2013',
-                    content: 'Company Name <small>Mid-level Designer</small>'
-                },
-                {
-                    date: '2012 - 2013',
-                    content: 'Company Name <small>Freelance</small>'
-                },
-                {
-                    date: '2011 - 2012',
-                    content: 'San Diego university  <small>For Design</small>'
-                },
-                {
-                    date: '2010 - 2011',
-                    content: 'New York university  <small>For Graphic Design</small>'
-                },
+                date: 'Oct 2018 - Present',
+                content: 'Company Name <small>Co-founder, Front-end Designer</small>'
+            },
+            {
+                date: '2016 - 2018',
+                content: 'Company Name <small>Senior Visual Designer</small>'
+            },
+            {
+                date: '2013 - 2016',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Freelance</small>'
+            },
+            {
+                date: '2011 - 2012',
+                content: 'San Diego university  <small>For Design</small>'
+            },
+            {
+                date: '2010 - 2011',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
 
-                {
-                    date: '2009 - 2010',
-                    content: 'New York university  <small>For Graphic Design</small>'
-                },
+            {
+                date: '2009 - 2010',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
 
-                {
-                    date: '2008 - 2009',
-                    content: 'New York university  <small>For Graphic Design</small>'
-                },
-                {
-                    date: '2005 - 2008',
-                    content: 'Lorem Ipsum  <small>Add Description</small>'
-                },
-                {
-                    date: '2003 - 2005',
-                    content: 'Lorem IPsum  <small>Add Description</small>'
-                },
-                {
-                    date: '2001 - 2003',
-                    content: 'Lorem IPsum  <small>Add Description</small>'
-                }
+            {
+                date: '2008 - 2009',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+            {
+                date: '2005 - 2008',
+                content: 'Lorem Ipsum  <small>Add Description</small>'
+            },
+            {
+                date: '2003 - 2005',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            },
+            {
+                date: '2001 - 2003',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            }
             ];
 
             $('#my-timeline').roadmap(events, {
@@ -480,8 +419,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="~/web/js/move-top.js"></script>
     <script src="~/web/js/easing.js"></script>
     <script>
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
                 $('html,body').animate({
                     scrollTop: $(this.hash).offset().top
@@ -491,15 +430,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     </script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             /*
-            						var defaults = {
-            							  containerID: 'toTop', // fading element id
-            							containerHoverID: 'toTopHover', // fading element hover id
-            							scrollSpeed: 1200,
-            							easingType: 'linear'
-            						 };
-            						*/
+                                    var defaults = {
+                                          containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                     };
+                                    */
 
             $().UItoTop({
                 easingType: 'easeOutQuart'
