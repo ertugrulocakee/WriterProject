@@ -25,6 +25,11 @@ namespace BL.Concrete
             return _headingDAL.FilterList(x => x.CategoryID == id);
         }
 
+        public List<Heading> GetListByHeadingName(string headingName)
+        {
+            return _headingDAL.FilterList(x => x.HeadingName == headingName && x.HeadingStatus == true).ToList();
+        }
+
         public List<Heading> GetListByWriter(int id)
         {
             return _headingDAL.FilterList(x => x.WriterID == id);

@@ -13,6 +13,7 @@ namespace BL.Abstract
 
         List<Heading> GetListByCategory(int id);
 
+        List<Heading> GetListByHeadingName(string headingName);
      
     }
 }

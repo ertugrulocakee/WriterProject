@@ -222,12 +222,26 @@ namespace WriterProject.Controllers
             if (validationResult.IsValid)
             {
 
-                string writerMail = Session["WriterMail"].ToString();
-                heading.HeadingDate = DateTime.Now;
-                heading.HeadingStatus = true;
-                heading.WriterID = writerManager.GetWriterByMail(writerMail).WriterID;
-                headingManager.TAdd(heading);
-                return RedirectToAction("MyHeading");
+                var headings = headingManager.GetListByHeadingName(heading.HeadingName);
+
+                if (headings.Any())
+                {
+
+                    TempData["message"] = "Boyle bir baslik daha once acilmis!";
+
+                    return RedirectToAction("NewHeading", "WriterPanel");
+
+                }
+                else
+                {
+                    string writerMail = Session["WriterMail"].ToString();
+                    heading.HeadingDate = DateTime.Now;
+                    heading.HeadingStatus = true;
+                    heading.WriterID = writerManager.GetWriterByMail(writerMail).WriterID;
+                    headingManager.TAdd(heading);
+                    return RedirectToAction("MyHeading");
+
+                }
 
             }
             else
@@ -307,7 +321,7 @@ namespace WriterProject.Controllers
 
                 TempData["message"] = "Secilecek kategori yok! Lutfen once kategori olusturun!";
 
-                return RedirectToAction("NewHeading", "WriterPanel");
+                return RedirectToAction("EditHeading", "WriterPanel");
 
             }
 
@@ -317,15 +331,31 @@ namespace WriterProject.Controllers
             if (validationResult.IsValid)
             {
 
-                var value = headingManager.TGetByID(heading.HeadingID);
-
-                value.Category = heading.Category;                
-                value.HeadingDate = DateTime.Now;
-                value.HeadingName = heading.HeadingName;
+                var headings = headingManager.GetListByHeadingName(heading.HeadingName).Where(m => m.HeadingID != heading.HeadingID);
 
 
-                headingManager.TUpdate(value);
-                return RedirectToAction("MyHeading");
+                if (headings.Any())
+                {
+
+                    TempData["message"] =  "Boyle bir baslik daha once acilmis!";
+
+                    return RedirectToAction("EditHeading", "WriterPanel");
+
+                }
+                else
+                {
+
+                    var value = headingManager.TGetByID(heading.HeadingID);
+
+                    value.Category = heading.Category;
+                    value.HeadingDate = DateTime.Now;
+                    value.HeadingName = heading.HeadingName;
+
+
+                    headingManager.TUpdate(value);
+                    return RedirectToAction("MyHeading");
+
+                }
 
             }
             else

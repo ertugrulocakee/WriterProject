@@ -47,9 +47,26 @@ namespace WriterProject.Controllers
 
             if (validationResult.IsValid)
             {
-                category.CategoryStatus = true;
-                categoryManager.TAdd(category);
-                return RedirectToAction("Index");
+
+
+                var categories = categoryManager.GetCategoriesByCategoryName(category.CategoryName);
+
+                if (categories.Any())
+                {
+
+                    ViewBag.Message = "Boyle bir kategori zaten mevcut!";
+
+                    return View();
+
+                }
+                else
+                {
+
+                    category.CategoryStatus = true;
+                    categoryManager.TAdd(category);
+                    return RedirectToAction("Index");
+
+                }
 
             }
             else
@@ -105,13 +122,29 @@ namespace WriterProject.Controllers
 
             if (validationResult.IsValid)
             {
-                var value = categoryManager.TGetByID(category.CategoryID);
 
-                value.CategoryName = category.CategoryName;
-                value.CategoryDescription = category.CategoryDescription;   
+                var categories = categoryManager.GetCategoriesByCategoryName(category.CategoryName).Where(m=>m.CategoryID != category.CategoryID);
 
-                categoryManager.TUpdate(value);
-                return RedirectToAction("Index");
+
+                if (categories.Any())
+                {
+                    ViewBag.Message = "Boyle bir kategori zaten mevcut!";
+
+                    return View(category);
+
+                }
+                else
+                {
+
+
+                    var value = categoryManager.TGetByID(category.CategoryID);
+
+                    value.CategoryName = category.CategoryName;
+                    value.CategoryDescription = category.CategoryDescription;
+
+                    categoryManager.TUpdate(value);
+                    return RedirectToAction("Index");
+                }
 
             }
             else
@@ -124,22 +157,22 @@ namespace WriterProject.Controllers
 
                 }
 
-                return View();
-
+              
             }
 
+            return View();
 
 
         }
 
-      public ActionResult CategoryHeadings(int id)
-      {
+        public ActionResult CategoryHeadings(int id)
+        {
 
           var headings = headingManager.GetListByCategory(id).Where(x=>x.HeadingStatus == true).ToList();
 
           return View(headings);
 
-      }
+         }
 
 
        public PartialViewResult AdminUserName()

@@ -21,7 +21,7 @@
 
                     <input type="hidden" name="HeadingID" value="@ViewBag.Id"/>
 
-                    <label>Başlık için yaz!</label>
+                    <label>@ViewBag.Name için yaz!</label>
 
                     @Html.TextAreaFor(m => m.ContentValue,10,8, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.ContentValue, "", new { @class = "text-danger" })

@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
 
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
@@ -16,7 +24,7 @@
             @using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
             {
 
-                @Html.HiddenFor(m=>m.CategoryID)
+                @Html.HiddenFor(m => m.CategoryID)
 
                 <div class="form-group">
                     <label>Kategori Adı</label>

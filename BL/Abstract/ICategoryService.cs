@@ -10,5 +10,7 @@ namespace BL.Abstract
     public interface ICategoryService : IGenericService<Category>
     {
 
+        List<Category> GetCategoriesByCategoryName(string categoryName);
+
     }
 }

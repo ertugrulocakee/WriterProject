@@ -20,6 +20,11 @@ namespace BL.Concrete
             _categoryDAL = categoryDAL;
         }
 
+        public List<Category> GetCategoriesByCategoryName(string categoryName)
+        {
+           return _categoryDAL.FilterList(m=>m.CategoryName == categoryName && m.CategoryStatus == true).ToList();
+        }
+
         public void TAdd(Category t)
         {
             _categoryDAL.Add(t);    

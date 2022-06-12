@@ -19,6 +19,7 @@ namespace WriterProject.Controllers
 
         ContentManager contentManager = new ContentManager(new EFContentDAL());
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
+        HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
 
         public ActionResult MyContent(string p)
         {
@@ -49,6 +50,11 @@ namespace WriterProject.Controllers
         public ActionResult AddContent(int id)
         {
             ViewBag.Id = id;    
+
+            var heading = headingManager.TGetByID(id);
+
+            ViewBag.Name = heading.HeadingName;
+
             return View();
 
         }
