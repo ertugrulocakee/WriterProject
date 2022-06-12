@@ -11,3 +11,18 @@ kurumsal mimariye ve SOLID Prensiplerine uygun bir çalışma yapmaya uğraş ve
 katmanı üzerine yoğunluk vereceğim. Ara ara ilerleme kaydettikçe projemi GitHub hesabım üzerinden güncelleyeceğim.
 
 Bu çalışmadan sonra .NET CORE MVC 6.0 ile bir çalışma/proje gerçekleştirmek istiyorum.
+
+
+Kullanılan Teknolojiler
+
+ASPNET MVC 5.0
+MSSQL
+BOOTSTRAP
+ENTITY FRAMEWORK (CodeFirst Yaklaşımı ile)
+C# Programlama Dili
+.NET
+Repository Design Pattern
+Fluent Validation
+Rolleme
+Partial View
+Proje/Çalışma katmanlı mimaride geliştirildi. SOLID Prensiplerine dikkat edildi. MVC Yazılım Tasarım Deseni kullanıldı.
