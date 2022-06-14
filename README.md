@@ -38,7 +38,17 @@ Yazarların kendilerine ait yetenek profili bulunmaktadır. Yeteneklerini yetene
 
 Adminler kategori açabilirler. Yazarları silebilirler. Uygulama için yeni yöneticiler tanımlayabilirler. Kendi aralarında mesajlaşabilirler. Ayrıca ziyaretçilerden gelen iletişim mesajlarını inceleyebilirler.
 
+#Update 14.06.2022
 
+Bundan sonra eksikler giderilmeye çalışılacaktır. 
 
+=> Uygulama SOLID' e daha yakın hale getirilebilir. 
+=> Kullanıcı şifreleri Hashlenerek veri tabanında saklanabilir.
+=> Bazı küçük hatalar giderilebilir.
+=> Arayüz daha güzel hale getirilebilir.
+=> PagedList çoğu yerde kullanılabilir. 
+=> Başlık içeriklerinin listelendiği sayfada yazarlar hızlı içerik yazabilir. Yani aynı sayfa içinde hem içerikler listelenirken hem de içerik yazılabilir. 
+
+Bahsettiğim eksikler çok yakında giderilecektir. Sonrasında çalışma son haliyle paylaşılacaktır. 
 
 
