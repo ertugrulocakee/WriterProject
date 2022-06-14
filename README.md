@@ -12,6 +12,7 @@ katmanı üzerine yoğunluk vereceğim. Ara ara ilerleme kaydettikçe projemi Gi
 
 Bu çalışmadan sonra .NET CORE MVC 6.0 ile bir çalışma/proje gerçekleştirmek istiyorum.
 
+#Update 13.06.2022
 
 Kullanılan Teknolojiler
 
@@ -26,3 +27,18 @@ Kullanılan Teknolojiler
 -> Rolleme
 -> Partial View
 -> Proje/Çalışma katmanlı mimaride geliştirildi. SOLID Prensiplerine dikkat edildi. MVC Yazılım Tasarım Deseni kullanıldı.
+
+#Update 14.06.2022
+
+Uygulama sözlük-forum arasında bir uygulamadır. Yazarlar ve Yöneticilerden oluşmaktadır. 
+
+Yazarlar başlık açabilirler. Açılan başlıklara içerik yazabilirler ve kendi aralarında mesajlaşabilirler.
+Uygulama için her yazar referansta bulunabilir. Sonrasında yazar isterse referansını güncelleyebilir. 
+Yazarların kendilerine ait yetenek profili bulunmaktadır. Yeteneklerini yetenek profillerine ekleyebilirler.
+
+Adminler kategori açabilirler. Yazarları silebilirler. Uygulama için yeni yöneticiler tanımlayabilirler. Kendi aralarında mesajlaşabilirler. Ayrıca ziyaretçilerden gelen iletişim mesajlarını inceleyebilirler.
+
+
+
+
+
