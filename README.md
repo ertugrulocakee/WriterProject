@@ -51,4 +51,7 @@ Bundan sonra eksikler giderilmeye çalışılacaktır.
 
 Bahsettiğim eksikler çok yakında giderilecektir. Sonrasında çalışma son haliyle paylaşılacaktır. 
 
+Vitrin Sayfası
+
+![image](https://user-images.githubusercontent.com/83928393/173523496-a8c3eb26-4006-4f60-8c38-9810ed2ca466.png)
 
