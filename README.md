@@ -67,5 +67,10 @@ Yazar Kayıt Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173524059-b33939d8-6cdc-4f5f-ac84-3c4625d90187.png)
 
+Yazar Yeteneklerim Profili
+
+![image](https://user-images.githubusercontent.com/83928393/173524568-b308adba-c39b-4b29-88e3-0bf72acc0a3a.png)
+
+Çalışmanın bu kısmı ilerleyen zamanlarda güncellenebilir.
 
 
