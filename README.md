@@ -59,4 +59,10 @@ Admin Giriş Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173523731-ca68c77d-d489-4d17-aaba-5aa4797ba450.png)
 
+Yazar Giriş Sayfası
+
+![image](https://user-images.githubusercontent.com/83928393/173523886-a61ddacf-3086-4d3a-9a3e-7e52d79e215e.png)
+
+
+
 
