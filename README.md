@@ -63,6 +63,9 @@ Yazar Giriş Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173523886-a61ddacf-3086-4d3a-9a3e-7e52d79e215e.png)
 
+Yazar Kayıt Sayfası
+
+![image](https://user-images.githubusercontent.com/83928393/173524059-b33939d8-6cdc-4f5f-ac84-3c4625d90187.png)
 
 
 
