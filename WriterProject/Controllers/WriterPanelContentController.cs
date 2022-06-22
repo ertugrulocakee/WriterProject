@@ -9,6 +9,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
@@ -21,7 +23,7 @@ namespace WriterProject.Controllers
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
         HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
 
-        public ActionResult MyContent(string p)
+        public ActionResult MyContent(string p , int page = 1)
         {
 
             string writerMail = Session["WriterMail"].ToString();
@@ -42,7 +44,7 @@ namespace WriterProject.Controllers
 
             }
            
-            return View(contentValues);
+            return View(contentValues.ToPagedList(page,10));
 
         }
 
@@ -98,9 +100,9 @@ namespace WriterProject.Controllers
         }
 
 
-        public ActionResult ContentByHeader(int id)
+        public ActionResult ContentByHeader(int id , int page = 1)
         {
-            var contentValues = contentManager.GetListByID(id).Where(m => m.ContentStatus == true).ToList();
+            var contentValues = contentManager.GetListByID(id).Where(m => m.ContentStatus == true).ToPagedList(page,5);
             return View(contentValues);
 
         }

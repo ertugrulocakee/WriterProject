@@ -59,7 +59,7 @@
     </div>
 </div>
 
-@Html.PagedListPager((IPagedList)Model, x => Url.Action("AllHeadings", new {x}),new PagedListRenderOptions
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("AllHeadings", new {page}),new PagedListRenderOptions
 {
 
     LiElementClasses=new List<String> {"page-link"}

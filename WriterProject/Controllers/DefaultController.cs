@@ -6,9 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace WriterProject.Controllers
 {
-    [Authorize(Roles="2")]
+    [Authorize(Roles = "2")]
     public class DefaultController : Controller
     {
         // GET: Default
@@ -16,6 +17,7 @@ namespace WriterProject.Controllers
         HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
         ContentManager contentManager = new ContentManager(new EFContentDAL());
 
+ 
         public ActionResult Headings()
         {
             var headingList = headingManager.TGetList();

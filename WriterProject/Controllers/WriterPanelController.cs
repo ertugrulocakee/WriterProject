@@ -163,14 +163,14 @@ namespace WriterProject.Controllers
         }
 
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(int page = 1)
         {
 
             string writerMail = Session["WriterMail"].ToString();
 
             int id = writerManager.GetWriterByMail(writerMail).WriterID;
 
-            var values = headingManager.GetListByWriter(id).Where(m => m.HeadingStatus == true).ToList();
+            var values = headingManager.GetListByWriter(id).Where(m => m.HeadingStatus == true).ToPagedList(page,5);
 
             return View(values);
           

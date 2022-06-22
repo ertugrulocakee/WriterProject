@@ -1,5 +1,7 @@
 ﻿@using Entities.Concrete
-@model List<Content>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.PagedList<Content>
 
 @{
     ViewBag.Title = "MyContent";
@@ -12,8 +14,8 @@
     <p>
 
 
-        Aranacak kelimeyi seçiniz: @Html.TextBox("p")
-        <input type="submit" value="Ara" />
+        @Html.TextBox("p")
+        <input type="submit" value="Ara" class="btn btn-info" />
 
     </p>
 
@@ -72,4 +74,9 @@
 </html>
 
 
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("MyContent", new { page }), new PagedListRenderOptions
+{
 
+    LiElementClasses = new List<String> { "page-link" }
+
+})
