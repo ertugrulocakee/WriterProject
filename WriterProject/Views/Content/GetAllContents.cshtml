@@ -1,5 +1,7 @@
 ﻿@using Entities.Concrete
-@model List<Content>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Content>
 
 
 @{
@@ -9,17 +11,17 @@
 
 
 @using (Html.BeginForm("GetAllContents", "Content", FormMethod.Get))
- {
+{
 
     <p>
 
 
-        Aranacak kelimeyi seçiniz: @Html.TextBox("p")
-        <input type="submit" value="Ara" />
+        @Html.TextBox("p")
+        <input type="submit" value="Ara" class="btn btn-info" />
 
     </p>
-   
- }
+
+}
 
 
 
@@ -57,7 +59,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                }
+                            }
                             <!-- END timeline item -->
                         </div>
 
@@ -72,3 +74,10 @@
     <!-- ./wrapper -->
 </body>
 </html>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("GetAllContents", new { page }), new PagedListRenderOptions
+{
+
+    LiElementClasses = new List<String> { "page-link" }
+
+})

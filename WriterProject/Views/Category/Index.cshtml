@@ -1,5 +1,7 @@
 ﻿@using Entities.Concrete
-@model List<Category>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
 
 
 @{
@@ -13,7 +15,7 @@
             <div class="card-header">
                 <h3 class="card-title">Kategoriler</h3>
 
-            
+
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -25,25 +27,25 @@
                             <th>Sil</th>
                             <th>Güncelle</th>
                             <th>Başlıklar</th>
-                       
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>@item.CategoryID</td>
-                            <td>@item.CategoryName</td>
-                     
-                            <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
-                            <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a></td>
-                            <td><a href="/Category/CategoryHeadings/@item.CategoryID" class="btn btn-info">Başlıklarına bak</a></td>
-                        </tr>
+                            <tr>
+                                <td>@item.CategoryID</td>
+                                <td>@item.CategoryName</td>
+
+                                <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a></td>
+                                <td><a href="/Category/CategoryHeadings/@item.CategoryID" class="btn btn-info">Başlıklarına bak</a></td>
+                            </tr>
 
                         }
                     </tbody>
                 </table>
-                
+
             </div>
             <!-- /.card-body -->
         </div>
@@ -51,5 +53,13 @@
     </div>
 </div>
 
-<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Bir Kategori Ekle</a>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+{
 
+    LiElementClasses = new List<String> { "page-link" }
+
+})
+
+<br/>
+
+<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Bir Kategori Ekle</a>

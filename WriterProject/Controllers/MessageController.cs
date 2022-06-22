@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
@@ -22,23 +24,23 @@ namespace WriterProject.Controllers
         WriterManager writerManager = new WriterManager(new EFWriterDAL()); 
 
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(int page = 1)
         {
 
             string email = Session["AdminEmail"].ToString();
 
-            var messageList = messageManager.GetReceiveBox(email).Where(m => m.MessageStatus == true).ToList();
+            var messageList = messageManager.GetReceiveBox(email).Where(m => m.MessageStatus == true).ToPagedList(page,5);
 
             return View(messageList);
 
         }
 
-        public ActionResult SendBox()
+        public ActionResult SendBox(int page = 1)
         {
 
             string email = Session["AdminEmail"].ToString();
 
-            var messageList = messageManager.GetSendBox(email).Where(m => m.MessageStatus == true).ToList();
+            var messageList = messageManager.GetSendBox(email).Where(m => m.MessageStatus == true).ToPagedList(page,5);
 
             return View(messageList);
 
@@ -155,12 +157,12 @@ namespace WriterProject.Controllers
         }
 
 
-        public ActionResult RemovedSendMessages()
+        public ActionResult RemovedSendMessages(int page = 1)
         {
 
             string email = Session["AdminEmail"].ToString();
 
-            var messageList = messageManager.GetSendBox(email).Where(m => m.MessageStatus == false).ToList();
+            var messageList = messageManager.GetSendBox(email).Where(m => m.MessageStatus == false).ToPagedList(page,5);
 
             return View(messageList);
 

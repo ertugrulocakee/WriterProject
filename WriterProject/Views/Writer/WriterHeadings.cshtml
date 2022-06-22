@@ -41,7 +41,7 @@
                                 <td>@item.HeadingName</td>
                                 <td>@item.HeadingDate</td>
                                 <td>@item.Category.CategoryName</td>
-                                <td>@item.Writer.WriterName @item.Writer.WriterSurName</td>
+                                <td><img src="@item.Writer.WriterImage" alt="User Avatar" class="img-size-50 mr-3 img-circle"> @item.Writer.WriterName @item.Writer.WriterSurName</td>
 
                                 <td><a href="/Content/ContentByHeader/@item.HeadingID" class="btn btn-info">Başlık İçeriklere Bak</a></td>
                         
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-@Html.PagedListPager((IPagedList)Model, x => Url.Action("WriterHeadings", new { x }), new PagedListRenderOptions
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("WriterHeadings", new { page }), new PagedListRenderOptions
 {
 
     LiElementClasses = new List<String> { "page-link" }

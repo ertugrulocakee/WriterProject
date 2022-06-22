@@ -1,5 +1,7 @@
 ﻿@using Entities.Concrete
-@model List<Content>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Content>
 
 @{
     ViewBag.Title = "ContentByHeader";
@@ -20,7 +22,7 @@
                     <div class="col-md-12">
                         <!-- The time line -->
 
-                      
+
 
                         <div class="timeline">
 
@@ -32,18 +34,18 @@
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
-                          <div>
-                            <img src="@item.Writer.WriterImage" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">@item.Writer.WriterName @item.Writer.WriterSurName</h3>
-                                <div class="timeline-body">
-                                    @item.ContentValue
+                                <div>
+                                    <img src="@item.Writer.WriterImage" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">@item.Writer.WriterName @item.Writer.WriterSurName</h3>
+                                        <div class="timeline-body">
+                                            @item.ContentValue
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                           </div>
                             }
-                                <!-- END timeline item -->
-                            </div>
+                            <!-- END timeline item -->
+                        </div>
 
                     </div>
                     <!-- /.col -->
@@ -57,3 +59,9 @@
 </body>
 </html>
 
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("ContentByHeader", new { page }), new PagedListRenderOptions
+{
+
+    LiElementClasses = new List<String> { "page-link" }
+
+})

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
@@ -15,9 +17,9 @@ namespace WriterProject.Controllers
         // GET: Contact
 
         ContactManager contactManager = new ContactManager(new EFContactDAL());
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var contactValues = contactManager.TGetList().Where(m=>m.ContactStatus==true).ToList();
+            var contactValues = contactManager.TGetList().Where(m=>m.ContactStatus==true).ToPagedList(page,5);
 
             return View(contactValues);
 
@@ -69,10 +71,10 @@ namespace WriterProject.Controllers
         }
 
 
-        public ActionResult RemovedContactMessages()
+        public ActionResult RemovedContactMessages(int page = 1)
         {
 
-            var contactValues = contactManager.TGetList().Where(m => m.ContactStatus == false).ToList();
+            var contactValues = contactManager.TGetList().Where(m => m.ContactStatus == false).ToPagedList(page,5);
 
             return View(contactValues);
 

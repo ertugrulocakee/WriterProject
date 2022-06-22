@@ -30,13 +30,13 @@ namespace BL.Concrete
             if (inputValue != null)
             {
 
-                return _contentDAL.FilterList(x => x.ContentValue.Contains(inputValue));
+                return _contentDAL.FilterList(x => x.ContentValue.Contains(inputValue)).Where(m => m.ContentStatus == true).ToList();
 
             }
             else
             {
 
-                return _contentDAL.List();  
+                return _contentDAL.List().Where(m => m.ContentStatus == true).ToList();  
 
             }
 

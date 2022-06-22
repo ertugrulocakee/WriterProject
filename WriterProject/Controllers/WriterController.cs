@@ -16,21 +16,23 @@ using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
+
     [Authorize(Roles = "1")]
     public class WriterController : Controller
     {
         // GET: Writer
 
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
-        HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());  
+        HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
 
-        public ActionResult Index()
+
+   
+        public ActionResult Index(int page = 1)
         {
-            var writers = writerManager.TGetList().Where(x=>x.WriterStatus == true).ToList();
+            var writers = writerManager.TGetList().Where(x=>x.WriterStatus == true).ToPagedList(page,6);
             return View(writers);
         }
 
-       
 
 
         public ActionResult DeleteWriter(int id)
@@ -47,12 +49,10 @@ namespace WriterProject.Controllers
         }
 
 
-        
-
         public ActionResult WriterHeadings(int id,int page=1)
         {
 
-            var headings = headingManager.GetListByWriter(id).Where(x=>x.HeadingStatus == true).ToPagedList(page,20);
+            var headings = headingManager.GetListByWriter(id).Where(x=>x.HeadingStatus == true).ToPagedList(page,5);
 
             return View(headings);
              

@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WriterProject.Controllers
 {
@@ -22,9 +24,9 @@ namespace WriterProject.Controllers
         AdminManager adminManager = new AdminManager(new EFAdminDAL());
 
        
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var categories = categoryManager.TGetList().Where(x=>x.CategoryStatus == true).ToList();
+            var categories = categoryManager.TGetList().Where(x => x.CategoryStatus == true).ToPagedList(page, 5);
             return View(categories);
         }
 
@@ -165,14 +167,14 @@ namespace WriterProject.Controllers
 
         }
 
-        public ActionResult CategoryHeadings(int id)
+        public ActionResult CategoryHeadings(int id , int page=1)
         {
 
-          var headings = headingManager.GetListByCategory(id).Where(x=>x.HeadingStatus == true).ToList();
+          var headings = headingManager.GetListByCategory(id).Where(x=>x.HeadingStatus == true).ToPagedList(page,5);
 
           return View(headings);
 
-         }
+        }
 
 
        public PartialViewResult AdminUserName()

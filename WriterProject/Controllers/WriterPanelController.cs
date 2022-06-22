@@ -396,7 +396,7 @@ namespace WriterProject.Controllers
         public ActionResult AllHeadings(int page=1)
         {
 
-            var headings = headingManager.TGetList().ToPagedList(page,10);
+            var headings = headingManager.TGetList().Where(m=>m.HeadingStatus == true).ToPagedList(page,10);
 
 
             return View(headings);
