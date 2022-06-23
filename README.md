@@ -6,13 +6,8 @@ Daha öncesinde .NET CORE ile 2 tane kurumsal mimariye ve SOLID Prensiplerine uy
 -> https://github.com/ertugrulocakee/PortfolyoProjesi
 -> https://github.com/ertugrulocakee/OCAK-212
 
-Şimdi bu proje ile birlikte ASPNET MVC 5.0 için de
-kurumsal mimariye ve SOLID Prensiplerine uygun bir çalışma yapmaya uğraş vereceğim. Proje henüz başlangıç aşamasındadır. Temel iskeleti kurulmuştur. Bundan sonra Arayüz/Sunum
-katmanı üzerine yoğunluk vereceğim. Ara ara ilerleme kaydettikçe projemi GitHub hesabım üzerinden güncelleyeceğim.
-
+Bu çalışmayla birlikte artık MVC 5.0 için de katmanlı mimaride bir mvc web uygulaması yapmış oldum.
 Bu çalışmadan sonra .NET CORE MVC 6.0 ile bir çalışma/proje gerçekleştirmek istiyorum.
-
-#Update 13.06.2022
 
 Kullanılan Teknolojiler
 
@@ -28,7 +23,6 @@ Kullanılan Teknolojiler
 -> Partial View
 -> Proje/Çalışma katmanlı mimaride geliştirildi. SOLID Prensiplerine dikkat edildi. MVC Yazılım Tasarım Deseni kullanıldı.
 
-#Update 14.06.2022
 
 Uygulama sözlük-forum arasında bir uygulamadır. Yazarlar ve Yöneticilerden oluşmaktadır. 
 
@@ -43,6 +37,8 @@ Adminler kategori açabilirler. Yazarları silebilirler. Uygulama için yeni yö
 Vitrin Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173523496-a8c3eb26-4006-4f60-8c38-9810ed2ca466.png)
+
+![image](https://user-images.githubusercontent.com/83928393/175343656-f258a9bd-adf5-416b-9191-7e5b3c818b3b.png)
 
 Admin Giriş Sayfası
 
@@ -64,11 +60,12 @@ Yazar Yeteneklerim Profili
 
 Başlıklar sayfası
 
-![image](https://user-images.githubusercontent.com/83928393/173525227-75238615-2c9e-4dcd-8a20-63f5038a9383.png)
+![image](https://user-images.githubusercontent.com/83928393/175344410-825485ec-00bc-4559-8adb-ff713522c002.png)
 
 Başlık içerikleri sayfası
 
-![image](https://user-images.githubusercontent.com/83928393/173525408-b7974283-ebd6-4067-ae6d-c67ffc595510.png)
+![image](https://user-images.githubusercontent.com/83928393/175341615-27fe36a6-729c-4933-948f-f0933ee8b20d.png)
+
 
 Referans Oluşturma & Düzenleme sayfası
 
@@ -84,11 +81,17 @@ Başlıklar için rapor sayfası (Sadece adminler erişim sağlayabilir.)
 
 Yazarlar sayfası (Sadece adminler erişim sağlayabilir.)
 
-![image](https://user-images.githubusercontent.com/83928393/173526093-03d9285e-19a4-424b-a80c-352fdde6a235.png)
+![image](https://user-images.githubusercontent.com/83928393/175343303-e7dfff05-ccea-4032-a31a-7400fc4465fa.png)
+
 
 Admin Paneli => Admin Ekleme Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173526232-206d491c-2972-4bb6-998f-3b8aeb00e8f8.png)
+
+Hata Sayfası
+
+![image](https://user-images.githubusercontent.com/83928393/175344847-3db2802c-8a25-4e20-9d71-86815e0d1eaa.png)
+
 
 
 #Update 14.06.2022
