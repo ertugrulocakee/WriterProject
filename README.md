@@ -79,7 +79,8 @@ Başlıklar için rapor sayfası (Sadece adminler erişim sağlayabilir.)
 
 Yazarlar sayfası (Sadece adminler erişim sağlayabilir.)
 
-![image](https://user-images.githubusercontent.com/83928393/173526093-03d9285e-19a4-424b-a80c-352fdde6a235.png)
+![image](https://user-images.githubusercontent.com/83928393/175343303-e7dfff05-ccea-4032-a31a-7400fc4465fa.png)
+
 
 Admin Paneli => Admin Ekleme Sayfası
 
