@@ -38,6 +38,8 @@ Vitrin Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173523496-a8c3eb26-4006-4f60-8c38-9810ed2ca466.png)
 
+![image](https://user-images.githubusercontent.com/83928393/175343656-f258a9bd-adf5-416b-9191-7e5b3c818b3b.png)
+
 Admin Giriş Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173523731-ca68c77d-d489-4d17-aaba-5aa4797ba450.png)
