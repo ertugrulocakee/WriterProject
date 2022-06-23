@@ -58,11 +58,12 @@ Yazar Yeteneklerim Profili
 
 Başlıklar sayfası
 
-![image](https://user-images.githubusercontent.com/83928393/173525227-75238615-2c9e-4dcd-8a20-63f5038a9383.png)
+![image](https://user-images.githubusercontent.com/83928393/175338990-b70b2643-1dcf-42db-b6f7-b4c298599b65.png)
 
 Başlık içerikleri sayfası
 
-![image](https://user-images.githubusercontent.com/83928393/173525408-b7974283-ebd6-4067-ae6d-c67ffc595510.png)
+![image](https://user-images.githubusercontent.com/83928393/175341615-27fe36a6-729c-4933-948f-f0933ee8b20d.png)
+
 
 Referans Oluşturma & Düzenleme sayfası
 
