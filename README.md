@@ -88,6 +88,11 @@ Admin Paneli => Admin Ekleme Sayfası
 
 ![image](https://user-images.githubusercontent.com/83928393/173526232-206d491c-2972-4bb6-998f-3b8aeb00e8f8.png)
 
+Hata Sayfası
+
+![image](https://user-images.githubusercontent.com/83928393/175344847-3db2802c-8a25-4e20-9d71-86815e0d1eaa.png)
+
+
 
 #Update 14.06.2022
 
