@@ -60,7 +60,7 @@ Yazar Yeteneklerim Profili
 
 Başlıklar sayfası
 
-![image](https://user-images.githubusercontent.com/83928393/175338990-b70b2643-1dcf-42db-b6f7-b4c298599b65.png)
+![image](https://user-images.githubusercontent.com/83928393/175344410-825485ec-00bc-4559-8adb-ff713522c002.png)
 
 Başlık içerikleri sayfası
 
