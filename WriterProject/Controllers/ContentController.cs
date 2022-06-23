@@ -18,12 +18,16 @@ namespace WriterProject.Controllers
         ContentManager contentManager = new ContentManager(new EFContentDAL());
 
 
-        public ActionResult GetAllContents(string p,int page=1)
+        public ActionResult GetAllContents(int? page,string content = "")
         {
 
-            var values = contentManager.GetListByInputValue(p);
+            ViewBag.Content = content;
 
-            return View(values.ToPagedList(page, 10));    
+            var values = contentManager.GetListByInputValue(content);
+
+            int pageSize = 10;
+            int pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            return View(values.ToPagedList(pageIndex, pageSize));    
        
         }
 

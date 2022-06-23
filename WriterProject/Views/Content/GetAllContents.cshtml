@@ -14,8 +14,8 @@
 {
 
     <p>
- 
-        @Html.TextBox("p") 
+
+        <input type="text" name="content" value="@ViewBag.Content" />
         <input type="submit" value="Ara" class="btn btn-info" />
 
     </p>
@@ -72,9 +72,17 @@
 </body>
 </html>
 
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("GetAllContents", new { page }), new PagedListRenderOptions
-{
 
-    LiElementClasses = new List<String> { "page-link" }
+Page @(Model.PageCount <Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("GetAllContents",
+   new
+   {
+       content = ViewBag.Content,
 
-})
+       page
+   }), new PagedListRenderOptions
+                            {
+
+                                LiElementClasses = new List<String> { "page-link" }
+
+                            })

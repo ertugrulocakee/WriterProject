@@ -23,8 +23,9 @@ namespace WriterProject.Controllers
         WriterManager writerManager = new WriterManager(new EFWriterDAL());
         HeadingManager headingManager = new HeadingManager(new EFHeadingDAL());
 
-        public ActionResult MyContent(string p , int page = 1)
+        public ActionResult MyContent(int? page,string content = "")
         {
+            ViewBag.Content = content;
 
             string writerMail = Session["WriterMail"].ToString();
 
@@ -32,10 +33,10 @@ namespace WriterProject.Controllers
 
             var contentValues = contentManager.GetListByWriter(id);
 
-            if (p != null)
+            if (content != null)
             {
 
-               contentValues = contentValues.Where(m => m.ContentStatus == true && m.ContentValue.Contains(p)).ToList();
+               contentValues = contentValues.Where(m => m.ContentStatus == true && m.ContentValue.Contains(content)).ToList();
 
             }
             else
@@ -43,8 +44,11 @@ namespace WriterProject.Controllers
               contentValues = contentValues.Where(m => m.ContentStatus == true).ToList();
 
             }
-           
-            return View(contentValues.ToPagedList(page,10));
+
+            int pageSize = 10;
+            int pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
+            return View(contentValues.ToPagedList(pageIndex,pageSize));
 
         }
 
