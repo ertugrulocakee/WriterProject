@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace WriterProject.Controllers
 {
-
     [AllowAnonymous]
     public class ErrorPageController : Controller
     {
